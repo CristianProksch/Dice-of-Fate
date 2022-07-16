@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.twinfox.tools": {
+      "version": "https://github.com/Twinf0x/twinfox-unity-tools.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "cdb7f3278acc3b87c2be57bc3cbd41662afc1a11"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.6",
       "depth": 1,
