@@ -6,6 +6,7 @@ using UnityEngine.Events;
 
 public enum TurnPhase
 {
+    MonsterPlacement,
     Placement,
     Action
 }
@@ -30,6 +31,8 @@ public class TurnController : MonoBehaviour
     #endregion
 
     #region Inspector
+    [SerializeField]
+    private UnityEvent _onStartMonsterPlacement;
     [SerializeField]
     private UnityEvent _onStartPlacement;
     [SerializeField]
@@ -86,6 +89,16 @@ public class TurnController : MonoBehaviour
     public static TurnPhase GetCurrentPhase()
     {
         return Instance._currentPhase;
+    }
+
+    public static void AddStartMonsterPlacementListener(UnityAction listener)
+    {
+        Instance._onStartMonsterPlacement.AddListener(listener);
+    }
+
+    public static void RemoveStartMonsterPlacementListener(UnityAction listener)
+    {
+        Instance._onStartMonsterPlacement.RemoveListener(listener);
     }
 
     public static void AddStartPlacementListener(UnityAction listener)

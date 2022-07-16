@@ -139,10 +139,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyPin
       objectReference: {fileID: 0}
+    - target: {fileID: 1217438311659522509, guid: 8c3af328494391a4b9897cf5d8734ac5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1217438311659522509, guid: 8c3af328494391a4b9897cf5d8734ac5, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1729528844322904395, guid: 8c3af328494391a4b9897cf5d8734ac5, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1369182351, guid: c38b68867b1caa44383e89fba491e940, type: 3}
+    - target: {fileID: 1729528844322904395, guid: 8c3af328494391a4b9897cf5d8734ac5, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c3af328494391a4b9897cf5d8734ac5, type: 3}
 --- !u!4 &179068178156253921 stripped

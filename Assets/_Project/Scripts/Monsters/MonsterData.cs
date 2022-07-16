@@ -24,5 +24,6 @@ public class MonsterData : ScriptableObject
     public string displayName;
     public Sprite monsterSprite;
     public int maxHealth;
+    public int pinsPerTurn;
     public List<MonsterPinData> pins;
 }

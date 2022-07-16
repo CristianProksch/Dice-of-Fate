@@ -102,16 +102,18 @@ public class PinGrid : MonoBehaviour
         return true;
     }
 
-    public void PlacePin(int x, int y, ActionPin prefab)
+    public ActionPin PlacePin(int x, int y, ActionPin prefab)
     {
         var pin = Instantiate(prefab, GetWorldPosition(x, y, true), Quaternion.identity);
-        _grid[x, y] = prefab;
+        _grid[x, y] = pin;
+
+        return pin;
     }
 
-    public void PlacePin(Vector3 worldPosition, ActionPin prefab)
+    public ActionPin PlacePin(Vector3 worldPosition, ActionPin prefab)
     {
         GetGridPosition(worldPosition, out int x, out int y);
-        PlacePin(x, y, prefab);
+        return PlacePin(x, y, prefab);
     }
 
     public ActionPin GetPin(int x, int y)
