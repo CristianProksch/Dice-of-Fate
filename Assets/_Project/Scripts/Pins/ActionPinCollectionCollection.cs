@@ -5,41 +5,42 @@ using UnityEngine;
 
 public class ActionPinCollectionCollection : MonoBehaviour
 {
-    [SerializeField]
-    private List<(ActionPinCollection collection, bool isAvailable)> _allActionPinCollections = new List<(ActionPinCollection collection, bool isAvailable)>();
+    private List<ActionPinCollection> _availableCollections = new List<ActionPinCollection>();
+    private List<ActionPinCollection> _placedCollections = new List<ActionPinCollection>();
 
     public List<ActionPinCollection> GetRandomActionPinCollections (int count)
     {
-        List<ActionPinCollection> drawCollection = new List<ActionPinCollection>();
-        for(int i = 0; i < count; i++)
+        if (count >= _availableCollections.Count)
         {
-            List<ActionPinCollection> availableCollections = (List<ActionPinCollection>)_allActionPinCollections.Where(item => item.isAvailable == true).Select(item => item.collection);
-
-            if(availableCollections.Count < 1)
-            {
-                return drawCollection;
-            }
-
-            int index = Random.Range(0, availableCollections.Count);
-            drawCollection.Add(availableCollections[index]);
-            var toRemoveElement = _allActionPinCollections[index];
-
-            _allActionPinCollections[index] = (toRemoveElement.collection, false);
+            return new List<ActionPinCollection>(_availableCollections);
         }
-        return drawCollection;
+        
+        var random = new System.Random();
+        return _availableCollections.OrderBy(item => random.Next()).Take(count).ToList();
     }
 
-    public bool RemoveActionPinCollection(ActionPinCollection toRemove, bool removePermanently=false)
+    public void RemoveActionPinCollectionPermanently(ActionPinCollection toRemove)
     {
-        if (_allActionPinCollections.Remove((toRemove, true)))
-            return true;
+        _availableCollections.Remove(toRemove);
+        _placedCollections.Remove(toRemove);
+    }
 
-        return _allActionPinCollections.Remove((toRemove, false));
+    public void SetActionPinCollectionPlaced(ActionPinCollection collection)
+    {
+        if (_availableCollections.Contains(collection))
+        {
+            _availableCollections.Remove(collection);
+            _placedCollections.Add(collection);
+        }
+        else
+        {
+            Debug.Log("Dayum son! You shouldn't be here");
+        }
     }
 
     public void Add(ActionPinCollection toAdd)
     {
-        _allActionPinCollections.Add((toAdd,true));
+        _availableCollections.Add(toAdd);
     }
 
     public void AddRange(IEnumerable<ActionPinCollection> items)
@@ -52,9 +53,6 @@ public class ActionPinCollectionCollection : MonoBehaviour
 
     public void ResetAvailability()
     {
-        for(int i = 0; i < _allActionPinCollections.Count; i++)
-        {
-            _allActionPinCollections[i] = (_allActionPinCollections[i].collection,true);
-        }
+        _availableCollections = _availableCollections.Concat(_placedCollections).ToList();
     }
 }

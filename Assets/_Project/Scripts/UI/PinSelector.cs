@@ -10,6 +10,8 @@ public class PinSelector : MonoBehaviour
 {
     [Header("References")]
     [SerializeField]
+    private GameObject _container;
+    [SerializeField]
     private Image _pinImage;
     [SerializeField]
     private TextMeshProUGUI _nameDisplay;
@@ -24,11 +26,18 @@ public class PinSelector : MonoBehaviour
 
     public void ApplyData(ActionPinCollection data)
     {
+        if (data == null)
+        {
+            Hide();
+            return;
+        }
+
         _currentPin = data;
 
         _pinImage.sprite = data.UiSprite;
         _nameDisplay.text = data.DisplayName;
         _descriptionDisplay.text = data.Description;
+        Show();
     }
 
     public void OnClick()
@@ -44,5 +53,15 @@ public class PinSelector : MonoBehaviour
     public void RemoveOnClickListener(UnityAction<ActionPinCollection> listener)
     {
         _onClick.RemoveListener(listener);
+    }
+
+    public void Show()
+    {
+        _container.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        _container.SetActive(false);
     }
 }

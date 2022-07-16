@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,10 +11,10 @@ public class PinSelectionDisplay : MonoBehaviour
     private GameObject _container;
     [SerializeField]
     private PinSelector[] _selectors;
+    [SerializeField]
+    private PlayerBehavior _player;
 
     [Header("Settings")]
-    [SerializeField]
-    private ActionPinCollection[] _availablePinCollections;
     [SerializeField]
     private UnityEvent<ActionPinCollection> _onPinCollectionSelected;
 
@@ -52,17 +53,26 @@ public class PinSelectionDisplay : MonoBehaviour
 
     public void RandomizePinSelection()
     {
-        _availablePinCollections = ActionPinCollectionManager.Instance.getCollectionsForPlayerLevel(GameController.GetCurrentLevel()).ToArray();
+        int amount = _selectors.Length;
+        var collections = _player._actionPinCollectionCollection.GetRandomActionPinCollections(amount);
 
-        foreach(var selector in _selectors)
+        for (int i = 0; i < amount; i++)
         {
-            selector.ApplyData(_availablePinCollections[Random.Range(0, _availablePinCollections.Length)]);
+            if (i < collections.Count)
+            {
+                _selectors[i].ApplyData(collections[i]);
+            }
+            else
+            {
+                _selectors[i].Hide();
+            }
         }
     }
 
     private void OnPinCollectionSelected(ActionPinCollection data)
     {
         _onPinCollectionSelected?.Invoke(data);
+        _player._actionPinCollectionCollection.SetActionPinCollectionPlaced(data);
         Hide();
     }
 

@@ -33,6 +33,13 @@ public class GameController : MonoBehaviour
     [Header("Settings")]
     [SerializeField]
     private List<MonsterData> _monsters;
+    [SerializeField]
+    private List<ActionPinCollection> _playerStartCollections;
+
+    [Space(5)]
+    [Header("Scene References")]
+    [SerializeField]
+    private PlayerBehavior _player;
 
     [Space(5)]
     [Header("Events")]
@@ -55,6 +62,8 @@ public class GameController : MonoBehaviour
             _monsterForTurn.Add(counter++, monster);
         }
         _currentMonsterId = -1;
+
+        _player._actionPinCollectionCollection.AddRange(_playerStartCollections);
     }
 
     private IEnumerator Start()
