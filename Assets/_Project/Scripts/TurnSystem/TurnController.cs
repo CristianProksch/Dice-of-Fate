@@ -32,6 +32,9 @@ public class TurnController : MonoBehaviour
 
     #region Inspector
     [SerializeField]
+    private MonsterController _monsterController;
+
+    [SerializeField]
     private UnityEvent _onStartMonsterPlacement;
     [SerializeField]
     private UnityEvent _onStartPlacement;
@@ -46,11 +49,15 @@ public class TurnController : MonoBehaviour
         // TODO
     }
 
-    private IEnumerator Start()
+    private void Start()
     {
-        // TODO think of a better way when and where to start the game
-        yield return null;
-        SetPhase(TurnPhase.Placement);
+        GameController.AddStartCombatListener(() => StartCombat());
+    }
+
+    private void StartCombat()
+    {
+        _monsterController.SpawnMonster(GameController.GetNextMonster());
+        SetPhase(TurnPhase.MonsterPlacement);
     }
 
     public static void SetPhase(TurnPhase phase)
@@ -59,6 +66,9 @@ public class TurnController : MonoBehaviour
 
         switch (Instance._currentPhase)
         {
+            case TurnPhase.MonsterPlacement:
+                Instance._onStartMonsterPlacement?.Invoke();
+                break;
             case TurnPhase.Placement:
                 Instance._onStartPlacement?.Invoke();
                 break;
@@ -77,6 +87,9 @@ public class TurnController : MonoBehaviour
 
         switch (Instance._currentPhase)
         {
+            case TurnPhase.MonsterPlacement:
+                Instance._onStartMonsterPlacement?.Invoke();
+                break;
             case TurnPhase.Placement:
                 Instance._onStartPlacement?.Invoke();
                 break;

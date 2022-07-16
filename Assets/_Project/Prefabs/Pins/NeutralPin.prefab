@@ -152,8 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b08b933f8ff58438bc395e2683d406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pinComponents:
-  - {fileID: 0}
+  pinComponents: []
   rb2d: {fileID: 0}
 --- !u!58 &1876415702616497250
 CircleCollider2D:

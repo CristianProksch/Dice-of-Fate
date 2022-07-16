@@ -33,6 +33,9 @@ public class MonsterController : MonoBehaviour
             _monsterPinPrefabs[prefab.type] = prefab.prefab;
         }
 
+        _monsterPins = new Dictionary<ActionPin, MonsterPinType>();
+        _replacedPins = new List<ActionPin>();
+
         TurnController.AddStartMonsterPlacementListener(() => ReplaceNeutralPins());
     }
 

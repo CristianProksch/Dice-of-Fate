@@ -15,4 +15,29 @@ MonoBehaviour:
   displayName: Test Monster
   monsterSprite: {fileID: 21300000, guid: 28f8487f3f03d1544bc18f63d4a58184, type: 3}
   maxHealth: 100
-  pins: []
+  pinsPerTurn: 1
+  pins:
+  - xPosition: 4
+    yPosition: 5
+    type: 1
+  - xPosition: 4
+    yPosition: 10
+    type: 1
+  - xPosition: 6
+    yPosition: 15
+    type: 1
+  - xPosition: 10
+    yPosition: 4
+    type: 1
+  - xPosition: 10
+    yPosition: 9
+    type: 2
+  - xPosition: 14
+    yPosition: 7
+    type: 3
+  - xPosition: 14
+    yPosition: 10
+    type: 1
+  - xPosition: 16
+    yPosition: 4
+    type: 2
