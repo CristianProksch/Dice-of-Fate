@@ -24,38 +24,39 @@ public class ActionPinCollectionManager : MonoBehaviour
 
     #region ActionPinCollectionManager
     [SerializeField]
-    private List<CollectionLevel> _collectionLevels;
+    private List<ActionPinCollectionByPlayerLevelCount> _collectionLevels;
 
-    public  List<ActionPinCollection> getCollectionsForLevel (int level)
+    public  List<ActionPinCollection> getCollectionsForPlayerLevel (int level)
     {
         List<ActionPinCollection> output = new List<ActionPinCollection>();
 
-        var collectionLevel = _collectionLevels[level];
-        int[] availableCollectionLevelCount = new int[_collectionLevels.Count()];
+        var collectionLevel = _collectionLevels[level-1];
+        /* int[] collectionLevelsCount = new int[_collectionLevels.Count()];
 
-        collectionLevel.pinsPerLevel.Aggregate(availableCollectionLevelCount, (list, item) =>
+        collectionLevel.ActionPinCollectionByLevelCount.Aggregate(collectionLevelsCount, (list, item) =>
         {
-            availableCollectionLevelCount[item]++;
-            return availableCollectionLevelCount;
+            collectionLevelsCount[item]++;
+            return collectionLevelsCount;
         });
 
-        for(int i = 0; i < availableCollectionLevelCount.Count(); i++)
+        for(int i = 0; i < collectionLevelsCount.Count(); i++)
         {
-            int ActionPinCollectionsWithLevelCount = ActionPinCollectionDB.allAvailable.Where(item => item.level == i + 1).Count();
+            int availableActionPinCollectionsCount = ActionPinCollectionDB.allAvailable.Where(item => item.level == i + 1).Count();
 
-            if (ActionPinCollectionsWithLevelCount < availableCollectionLevelCount[i])
-                throw new Exception($"not enough different ActionPinCollections for level {i+1} available. in DB {ActionPinCollectionsWithLevelCount} found");
+            if (availableActionPinCollectionsCount < collectionLevelsCount[i])
+                throw new Exception($"not enough different ActionPinCollections for level {i+1} available. in DB {availableActionPinCollectionsCount} found");
         }
-
-        for(int i = 0; i < collectionLevel.pinsPerLevel.Count(); i++)
+        */
+        
+        foreach(var actionPinCollectionByLevelCount in collectionLevel.ActionPinCollectionByLevelCount)
         {
-            for (int j = 0; j < collectionLevel.pinsPerLevel[i] ; j++)
+            for(int i = 0; i < actionPinCollectionByLevelCount; i++)
             {
                 ActionPinCollection randCandidate = null;
-                while (randCandidate == null || output.Contains(randCandidate))
-                {
-                    randCandidate = ActionPinCollectionDB.GetRandomActionPinCollection(level);
-                }
+                //while (randCandidate == null || output.Contains(randCandidate))
+                //{
+                randCandidate = ActionPinCollectionDB.GetRandomActionPinCollection(level);
+                //}
                 output.Add(randCandidate);
             }
         }
@@ -66,7 +67,7 @@ public class ActionPinCollectionManager : MonoBehaviour
 }
 
 [Serializable]
-public struct CollectionLevel{
+public struct ActionPinCollectionByPlayerLevelCount{
     [SerializeField]
-    public List<int> pinsPerLevel;
+    public List<int> ActionPinCollectionByLevelCount;
 }
