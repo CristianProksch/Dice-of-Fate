@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3000272153649171528}
   - component: {fileID: 7505905067686946978}
   - component: {fileID: 3172661351437116532}
+  - component: {fileID: 6664128815003934039}
   m_Layer: 0
   m_Name: CellDisplay
   m_TagString: Untagged
@@ -97,4 +98,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 233b6125ccd7f4246852008e6efd098f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellRenderer: {fileID: 7505905067686946978}
+  _cellRenderer: {fileID: 7505905067686946978}
+  _onMouseEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  _onMouseExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!61 &6664128815003934039
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9099432824626253541}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.3333334, y: 1.3333334}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

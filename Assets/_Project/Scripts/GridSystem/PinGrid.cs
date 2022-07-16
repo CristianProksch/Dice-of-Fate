@@ -16,9 +16,22 @@ public class PinGrid : MonoBehaviour
     private CellDisplay _cellDisplayPrefab;
 
     [Space(5)]
+    [Header("Display Settings")]
+    [SerializeField]
+    private Color _baseColor;
+    [SerializeField]
+    private Color _hoverColor;
+    [SerializeField]
+    private Color _disabledColor;
+    [SerializeField]
+    private Color _placeableColor;
+    [SerializeField]
+    private Color _notPlaceableColor;
+
+    [Space(5)]
     [Header("Debug")]
     [SerializeField]
-    private Transform _debugObject;
+    private ActionPin _debugObject;
     #endregion
 
     private CellDisplay[,] _gridBackground;
@@ -33,7 +46,12 @@ public class PinGrid : MonoBehaviour
         {
             for (int y = 0; y < _height; y++)
             {
-                _gridBackground[x, y] = Instantiate(_cellDisplayPrefab, GetWorldPosition(x, y, true), Quaternion.identity, transform);
+                var cellDisplay = Instantiate(_cellDisplayPrefab, GetWorldPosition(x, y, true), Quaternion.identity, transform);
+                _gridBackground[x, y] = cellDisplay;
+                _gridBackground[x, y].AddMouseEnterListener(() => HighlightCell(cellDisplay));
+                _gridBackground[x, y].AddMouseExitListener(() => ResetCellColor(cellDisplay));
+
+                ResetCellColor(cellDisplay);
             }
         }
     }
@@ -71,6 +89,36 @@ public class PinGrid : MonoBehaviour
     public ActionPin GetPin(int x, int y)
     {
         return _grid[x, y];
+    }
+
+    private void HighlightCell(CellDisplay cell)
+    {
+        GetGridPosition(cell.transform.position, out int x, out int y);
+
+        // TODO: Actual implementation
+        if (_grid[x, y] != null)
+        {
+            _gridBackground[x, y].SetColor(_disabledColor);
+        }
+        else
+        {
+            _gridBackground[x, y].SetColor(_hoverColor);
+        }
+    }
+
+    private void ResetCellColor(CellDisplay cell)
+    {
+        GetGridPosition(cell.transform.position, out int x, out int y);
+
+        // TODO: Actual implementation
+        if (_grid[x, y] != null)
+        {
+            _gridBackground[x, y].SetColor(_disabledColor);
+        }
+        else
+        {
+            _gridBackground[x, y].SetColor(_baseColor);
+        }
     }
 
     private void OnDrawGizmosSelected()
