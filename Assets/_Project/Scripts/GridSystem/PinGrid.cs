@@ -75,7 +75,7 @@ public class PinGrid : MonoBehaviour
         return result;
     }
 
-    private void GetGridPosition(Vector3 worldPosition, out int x, out int y)
+    public void GetGridPosition(Vector3 worldPosition, out int x, out int y)
     {
         var temp = worldPosition - transform.position;
         x = Mathf.FloorToInt(temp.x / _cellSize);
@@ -97,15 +97,16 @@ public class PinGrid : MonoBehaviour
         return true;
     }
 
-    public void SetPin(int x, int y, ActionPin value)
+    public void PlacePin(int x, int y, ActionPin prefab)
     {
-        _grid[x, y] = value;
+        var pin = Instantiate(prefab, GetWorldPosition(x, y, true), Quaternion.identity);
+        _grid[x, y] = prefab;
     }
 
-    public void SetPin(Vector3 worldPosition, ActionPin value)
+    public void PlacePin(Vector3 worldPosition, ActionPin prefab)
     {
         GetGridPosition(worldPosition, out int x, out int y);
-        SetPin(x, y, value);
+        PlacePin(x, y, prefab);
     }
 
     public ActionPin GetPin(int x, int y)
