@@ -7,13 +7,13 @@ public class PinGrid : MonoBehaviour
     #region Inspector
     [Header("Grid Settings")]
     [SerializeField]
-    private int _width;
+    internal int _width;
     [SerializeField]
-    private int _height;
+    internal int _height;
     [SerializeField]
-    private float _cellSize;
+    internal float _cellSize;
     [SerializeField]
-    private CellDisplay _cellDisplayPrefab;
+    internal CellDisplay _cellDisplayPrefab;
 
     [Space(5)]
     [Header("Display Settings")]
@@ -39,7 +39,7 @@ public class PinGrid : MonoBehaviour
     private CellDisplay[,] _gridBackground;
     private ActionPin[,] _grid;
 
-    private void Start()
+    internal virtual void Start()
     {
         if (_enableDebugPlacement)
         {
@@ -63,7 +63,7 @@ public class PinGrid : MonoBehaviour
         }
     }
 
-    private Vector3 GetWorldPosition(int x, int y, bool getCenter = false)
+    internal Vector3 GetWorldPosition(int x, int y, bool getCenter = false)
     {
         var result = transform.position + (new Vector3(x, y) * _cellSize);
 
@@ -119,7 +119,7 @@ public class PinGrid : MonoBehaviour
         return _grid[x, y];
     }
 
-    private void HighlightCell(CellDisplay cell)
+    internal void HighlightCell(CellDisplay cell)
     {
         GetGridPosition(cell.transform.position, out int x, out int y);
 
@@ -134,7 +134,7 @@ public class PinGrid : MonoBehaviour
         }
     }
 
-    private void ResetCellColor(CellDisplay cell)
+    internal void ResetCellColor(CellDisplay cell)
     {
         GetGridPosition(cell.transform.position, out int x, out int y);
 
@@ -149,7 +149,7 @@ public class PinGrid : MonoBehaviour
         }
     }
 
-    private void TryDebugPlacement()
+    internal void TryDebugPlacement()
     {
         var mousePosition = InputController.GetMousePosition();
         Debug.Log($"Mouse position: {mousePosition}");
@@ -167,7 +167,7 @@ public class PinGrid : MonoBehaviour
         ResetCellColor(_gridBackground[x, y]);
     }
 
-    private void OnDrawGizmosSelected()
+    internal void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
 
