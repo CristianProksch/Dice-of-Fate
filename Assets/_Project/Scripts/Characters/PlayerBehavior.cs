@@ -15,14 +15,12 @@ public class PlayerBehavior : MonoBehaviour
     private int _shield;
 
     [SerializeField]
-    private List<ActionPinCollection> _startActionPinCollections = new List<ActionPinCollection>();
-
-    private List<ActionPinCollection> _currentActionPinCollections = new List<ActionPinCollection>();
+    public ActionPinCollectionCollection _actionPinCollectionCollection;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -46,10 +44,5 @@ public class PlayerBehavior : MonoBehaviour
     public void Heal(int ammount)
     {
         _health = Mathf.Min(_maxHealth, _health + ammount);
-    }
-
-    public ActionPinCollection [] GetAvailableActionPinCollections()
-    {
-        return _currentActionPinCollections.ToArray();
     }
 }
