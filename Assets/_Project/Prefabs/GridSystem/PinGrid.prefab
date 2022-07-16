@@ -53,4 +53,5 @@ MonoBehaviour:
   _disabledColor: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 1}
   _placeableColor: {r: 0.32626268, g: 0.6698113, b: 0.11163515, a: 1}
   _notPlaceableColor: {r: 0.5377358, g: 0.07440364, b: 0.07440364, a: 1}
-  _debugObject: {fileID: 2192720428064130686, guid: b30e7da4deac3184b972bacd9fecce0c, type: 3}
+  _enableDebugPlacement: 1
+  _debugObject: {fileID: 8298906634246615410, guid: 8c3af328494391a4b9897cf5d8734ac5, type: 3}
