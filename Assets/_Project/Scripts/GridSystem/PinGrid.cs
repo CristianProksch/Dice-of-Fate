@@ -31,6 +31,8 @@ public class PinGrid : MonoBehaviour
     [Space(5)]
     [Header("Debug")]
     [SerializeField]
+    private bool _enableDebugPlacement = false;
+    [SerializeField]
     private ActionPin _debugObject;
     #endregion
 
@@ -39,6 +41,11 @@ public class PinGrid : MonoBehaviour
 
     private void Start()
     {
+        if (_enableDebugPlacement)
+        {
+            InputController.AddMouseUpListener(() => TryDebugPlacement());
+        }
+
         _gridBackground = new CellDisplay[_width, _height];
         _grid = new ActionPin[_width, _height];
 
@@ -73,6 +80,21 @@ public class PinGrid : MonoBehaviour
         var temp = worldPosition - transform.position;
         x = Mathf.FloorToInt(temp.x / _cellSize);
         y = Mathf.FloorToInt(temp.y / _cellSize);
+    }
+
+    public bool IsValidGridPosition(int x, int y)
+    {
+        if (x < 0 || y < 0)
+        {
+            return false;
+        }
+
+        if (x > _width || y > _height)
+        {
+            return false;
+        }
+
+        return true;
     }
 
     public void SetPin(int x, int y, ActionPin value)
@@ -119,6 +141,24 @@ public class PinGrid : MonoBehaviour
         {
             _gridBackground[x, y].SetColor(_baseColor);
         }
+    }
+
+    private void TryDebugPlacement()
+    {
+        var mousePosition = InputController.GetMousePosition();
+        Debug.Log($"Mouse position: {mousePosition}");
+        GetGridPosition(mousePosition, out int x, out int y);
+
+        if (!IsValidGridPosition(x, y))
+        {
+            Debug.Log($"Invalid grid position: {x}/{y}");
+            return;
+        }
+        
+        var debugPin = Instantiate(_debugObject, GetWorldPosition(x, y, true), Quaternion.identity);
+        _grid[x, y] = debugPin;
+
+        ResetCellColor(_gridBackground[x, y]);
     }
 
     private void OnDrawGizmosSelected()
