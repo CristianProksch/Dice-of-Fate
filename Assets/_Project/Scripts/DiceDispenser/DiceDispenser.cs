@@ -15,6 +15,8 @@ public class DiceDispenser : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        InputController.AddMouseUpListener(() => SpawnDie());
+
         direction = Vector3.right;
     }
 
@@ -23,7 +25,7 @@ public class DiceDispenser : MonoBehaviour
     {
         var dispenserPosition = transform.position;
 
-        if (dispenserPosition.x <= startPosition.transform.position.x )
+        if (dispenserPosition.x <= startPosition.transform.position.x)
         {
             direction = Vector3.right;
         }
@@ -37,6 +39,8 @@ public class DiceDispenser : MonoBehaviour
 
     void SpawnDie()
     {
-        Instantiate(die);
+        var rotation = Quaternion.Euler(new Vector3(0f, 0f, Random.Range(0f, 360f)));
+
+        Instantiate(die, transform.position, rotation);
     }
 }
