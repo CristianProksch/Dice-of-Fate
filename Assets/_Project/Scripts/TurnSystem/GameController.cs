@@ -54,7 +54,7 @@ public class GameController : MonoBehaviour
         {
             _monsterForTurn.Add(counter++, monster);
         }
-        _currentMonsterId = 0;
+        _currentMonsterId = -1;
     }
 
     private IEnumerator Start()
@@ -109,7 +109,7 @@ public class GameController : MonoBehaviour
             Debug.Log("You won, but I can't handle that");
         }
 
-        return Instance._monsterForTurn[Instance._currentMonsterId++];
+        return Instance._monsterForTurn[++Instance._currentMonsterId];
     }
 
     public static int GetCurrentLevel()
