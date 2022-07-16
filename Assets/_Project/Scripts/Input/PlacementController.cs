@@ -32,6 +32,11 @@ public class PlacementController : MonoBehaviour
             return;
         }
 
+        if (InputController.IsMouseOverUI())
+        {
+            return;
+        }
+
         if (_pinsToPlace == null || _pinsToPlace.Count <= 0)
         {
             return;

@@ -33,7 +33,6 @@ public class PinSelector : MonoBehaviour
 
     public void OnClick()
     {
-        Debug.Log("Selector clicked");
         _onClick?.Invoke(_currentPin);
     }
 
