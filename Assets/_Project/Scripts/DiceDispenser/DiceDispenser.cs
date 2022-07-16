@@ -8,7 +8,7 @@ public class DiceDispenser : MonoBehaviour
     public Transform endPosition;
     public float moveSpeed;
 
-    public GameObject die;
+    public GameObject diePrefab;
 
     private Vector3 direction;
 
@@ -16,7 +16,6 @@ public class DiceDispenser : MonoBehaviour
     void Start()
     {
         InputController.AddMouseUpListener(() => SpawnDie());
-
         direction = Vector3.right;
     }
 
@@ -40,7 +39,6 @@ public class DiceDispenser : MonoBehaviour
     void SpawnDie()
     {
         var rotation = Quaternion.Euler(new Vector3(0f, 0f, Random.Range(0f, 360f)));
-
-        Instantiate(die, transform.position, rotation);
+        Instantiate(diePrefab, transform.position, rotation);
     }
 }
