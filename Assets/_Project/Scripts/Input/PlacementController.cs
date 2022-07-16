@@ -60,6 +60,6 @@ public class PlacementController : MonoBehaviour
 
     private void SetPinsToPlace(ActionPinCollection pinData)
     {
-        _pinsToPlace = new Queue<ActionPin>(pinData.pins);
+        _pinsToPlace = new Queue<ActionPin>(pinData.Pins);
     }
 }

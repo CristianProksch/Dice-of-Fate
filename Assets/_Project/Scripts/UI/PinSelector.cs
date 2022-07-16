@@ -26,9 +26,9 @@ public class PinSelector : MonoBehaviour
     {
         _currentPin = data;
 
-        _pinImage.sprite = data.uiSprite;
-        _nameDisplay.text = data.name;
-        _descriptionDisplay.text = data.description;
+        _pinImage.sprite = data.UiSprite;
+        _nameDisplay.text = data.DisplayName;
+        _descriptionDisplay.text = data.Description;
     }
 
     public void OnClick()

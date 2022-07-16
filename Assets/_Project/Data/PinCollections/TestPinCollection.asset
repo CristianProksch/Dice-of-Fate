@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0eade0bfdfb9f45a78ab049dd6e813, type: 3}
   m_Name: TestPinCollection
   m_EditorClassIdentifier: 
-  uiSprite: {fileID: 21300000, guid: 28f8487f3f03d1544bc18f63d4a58184, type: 3}
-  pins:
+  _uiSprite: {fileID: -61997093, guid: d11090a5dfc4e064fa37b5e6a1531c18, type: 3}
+  _pins:
   - {fileID: 8298906634246615410, guid: 8c3af328494391a4b9897cf5d8734ac5, type: 3}
   - {fileID: 8298906634246615410, guid: 8c3af328494391a4b9897cf5d8734ac5, type: 3}
   - {fileID: 8298906634246615410, guid: 8c3af328494391a4b9897cf5d8734ac5, type: 3}
-  displayName: Debug Collection
-  description: Just some lame debug pins
+  _displayName: Debug Collection
+  _description: Three boring test pins
