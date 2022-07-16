@@ -6,18 +6,24 @@ using UnityEngine;
 public class ActionPinCollection : ScriptableObject
 {
     [SerializeField]
+    private int _id;
+    public int id { get => _id; }
+    [SerializeField]
+    private int _level;
+    public int level { get => _level; }
+    [SerializeField]
     private Sprite _uiSprite;
-    public Sprite UiSprite { get { return _uiSprite; } }
+    public Sprite UiSprite { get => _uiSprite; }
 
     [SerializeField]
     private List<ActionPin> _pins;
-    public List<ActionPin> Pins { get { return _pins; } }
+    public List<ActionPin> Pins { get => _pins; }
 
     [SerializeField]
     private string _displayName;
-    public string DisplayName { get { return _displayName; } }
+    public string DisplayName { get => _displayName; }
 
     [SerializeField]
     private string _description;
-    public string Description { get { return _description; } }
+    public string Description { get => _description; }
 }
