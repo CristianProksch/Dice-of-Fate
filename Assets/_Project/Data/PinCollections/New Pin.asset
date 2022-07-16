@@ -16,9 +16,9 @@ MonoBehaviour:
   _level: 1
   _uiSprite: {fileID: 0}
   _pins:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8298906634246615410, guid: 8c3af328494391a4b9897cf5d8734ac5, type: 3}
+  - {fileID: 8298906634246615410, guid: 8c3af328494391a4b9897cf5d8734ac5, type: 3}
+  - {fileID: 8298906634246615410, guid: 8c3af328494391a4b9897cf5d8734ac5, type: 3}
+  - {fileID: 8298906634246615410, guid: 8c3af328494391a4b9897cf5d8734ac5, type: 3}
   _displayName: DefaultCollection
   _description: DefaultCollection

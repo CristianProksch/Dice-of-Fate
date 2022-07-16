@@ -15,12 +15,18 @@ public class PlacementController : MonoBehaviour
 
     private void Start()
     {
+        TurnController.AddStartActionListener(AdjustGridVisibility);
+        TurnController.AddStartPlacementListener(AdjustGridVisibility);
+        TurnController.AddStartMonsterPlacementListener(AdjustGridVisibility);
         InputController.AddMouseUpListener(() => TryPlacePin());
         _selectionDisplay.AddPinCollectionSelectedListener(SetPinsToPlace);
     }
 
     private void OnDestroy()
     {
+        TurnController.RemoveStartActionListener(AdjustGridVisibility);
+        TurnController.RemoveStartPlacementListener(AdjustGridVisibility);
+        TurnController.RemoveStartMonsterPlacementListener(AdjustGridVisibility);
         InputController.RemoveMouseUpListener(() => TryPlacePin());
         _selectionDisplay.RemovePinCollectionSelectedListener(SetPinsToPlace);
     }
@@ -58,8 +64,26 @@ public class PlacementController : MonoBehaviour
         }
     }
 
+    private void AdjustGridVisibility()
+    {
+        if (TurnController.GetCurrentPhase() != TurnPhase.Placement)
+        {
+            _grid.HideGrid();
+        }
+        else
+        {
+            _grid.ShowGrid();
+        }
+    }
+
     private void SetPinsToPlace(ActionPinCollection pinData)
     {
+        if (pinData == null)
+        {
+            TurnController.NextPhase();
+            return;
+        }
+
         _pinsToPlace = new Queue<ActionPin>(pinData.Pins);
     }
 }

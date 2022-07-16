@@ -151,6 +151,22 @@ public class PinGrid : MonoBehaviour
         }
     }
 
+    public void ShowGrid()
+    {
+        foreach(var cell in _gridBackground)
+        {
+            cell.gameObject.SetActive(true);
+        }
+    }
+
+    public void HideGrid()
+    {
+        foreach (var cell in _gridBackground)
+        {
+            cell.gameObject.SetActive(false);
+        }
+    }
+
     internal void TryDebugPlacement()
     {
         var mousePosition = InputController.GetMousePosition();

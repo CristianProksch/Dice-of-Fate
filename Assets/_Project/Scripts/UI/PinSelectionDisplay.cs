@@ -67,6 +67,12 @@ public class PinSelectionDisplay : MonoBehaviour
                 _selectors[i].Hide();
             }
         }
+
+        if (collections.Count == 0)
+        {
+            OnPinCollectionSelected(null);
+            return;
+        }
     }
 
     private void OnPinCollectionSelected(ActionPinCollection data)
