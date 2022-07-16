@@ -4,20 +4,31 @@ using UnityEngine;
 
 public class DiceDispenser : MonoBehaviour
 {
+    [Header("Movement")]
     public Transform startPosition;
     public Transform endPosition;
     public float moveSpeed;
 
-    public GameObject die;
+    [Header("Spawn")]
+    public Die diePrefab;
+    public int dicePerTurn;
 
     private Vector3 direction;
+    private int spawnedThisTurn;
+    private int finishedDiceThisTurn;
 
     // Start is called before the first frame update
     void Start()
     {
         InputController.AddMouseUpListener(() => SpawnDie());
-
+        TurnController.AddStartActionListener(() => OnNewTurn());
         direction = Vector3.right;
+    }
+
+    void OnDestroy()
+    {
+        InputController.RemoveMouseUpListener(() => SpawnDie());
+        TurnController.RemoveStartActionListener(() => OnNewTurn());
     }
 
     // Update is called once per frame
@@ -39,8 +50,41 @@ public class DiceDispenser : MonoBehaviour
 
     void SpawnDie()
     {
-        var rotation = Quaternion.Euler(new Vector3(0f, 0f, Random.Range(0f, 360f)));
+        if (TurnController.GetCurrentPhase() != TurnPhase.Action)
+        {
+            return;
+        }
 
-        Instantiate(die, transform.position, rotation);
+        if (InputController.IsMouseOverUI())
+        {
+            return;
+        }
+
+        if (spawnedThisTurn >= dicePerTurn)
+        {
+            return;
+        }
+
+        var rotation = Quaternion.Euler(new Vector3(0f, 0f, Random.Range(0f, 360f)));
+        var die = Instantiate(diePrefab, transform.position, rotation);
+        die.AddDieFinishedListener(() => OnDieFinished());
+
+        spawnedThisTurn++;
+    }
+
+    void OnDieFinished()
+    {
+        finishedDiceThisTurn++;
+
+        if (finishedDiceThisTurn >= dicePerTurn)
+        {
+            TurnController.NextPhase();
+        }
+    }
+
+    void OnNewTurn()
+    {
+        spawnedThisTurn = 0;
+        finishedDiceThisTurn = 0;
     }
 }
