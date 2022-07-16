@@ -24,7 +24,6 @@ public class ActionPin : MonoBehaviour
 
     void Execute()
     {
-        Debug.Log("EXECUTE");
         foreach (PinComponentBase comp in pinComponents)
         {
             comp.TriggerAction();

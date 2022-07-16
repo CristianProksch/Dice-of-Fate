@@ -54,6 +54,7 @@ public class PlacementController : MonoBehaviour
 
         if (_pinsToPlace.Count <= 0 && advancePhase)
         {
+            Debug.Log("PC - Go to next phase");
             TurnController.NextPhase();
         }
     }
