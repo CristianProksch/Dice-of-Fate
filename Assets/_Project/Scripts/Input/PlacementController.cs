@@ -11,18 +11,18 @@ public class PlacementController : MonoBehaviour
     private PinSelectionDisplay _selectionDisplay;
     #endregion
 
-    private ActionPinCollection _pinToPlace;
+    private Queue<ActionPin> _pinsToPlace;
 
     private void Start()
     {
         InputController.AddMouseUpListener(() => TryPlacePin());
-        _selectionDisplay.AddPinSelectedListener(SetPinToPlace);
+        _selectionDisplay.AddPinCollectionSelectedListener(SetPinsToPlace);
     }
 
     private void OnDestroy()
     {
         InputController.RemoveMouseUpListener(() => TryPlacePin());
-        _selectionDisplay.RemovePinSelectedListener(SetPinToPlace);
+        _selectionDisplay.RemovePinCollectionSelectedListener(SetPinsToPlace);
     }
 
     private void TryPlacePin(bool advancePhase = true)
@@ -32,29 +32,29 @@ public class PlacementController : MonoBehaviour
             return;
         }
 
-        if (_pinToPlace == null)
+        if (_pinsToPlace == null || _pinsToPlace.Count <= 0)
         {
             return;
         }
 
         _grid.GetGridPosition(InputController.GetMousePosition(), out int x, out int y);
 
-        if (!_grid.IsValidGridPosition(x, y))
+        if (!_grid.IsValidGridPosition(x, y, true))
         {
             return;
         }
 
-        //_grid.PlacePin(InputController.GetMousePosition(), _pinToPlace.pins);
-        _pinToPlace = null;
+        var pin = _pinsToPlace.Dequeue();
+        _grid.PlacePin(InputController.GetMousePosition(), pin);
 
-        if (advancePhase)
+        if (_pinsToPlace.Count <= 0 && advancePhase)
         {
             TurnController.NextPhase();
         }
     }
 
-    private void SetPinToPlace(ActionPinCollection pinData)
+    private void SetPinsToPlace(ActionPinCollection pinData)
     {
-        _pinToPlace = pinData;
+        _pinsToPlace = new Queue<ActionPin>(pinData.pins);
     }
 }

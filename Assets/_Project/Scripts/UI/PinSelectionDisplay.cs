@@ -15,14 +15,14 @@ public class PinSelectionDisplay : MonoBehaviour
     [SerializeField]
     private ActionPinCollection[] _availablePins;
     [SerializeField]
-    private UnityEvent<ActionPinCollection> _onPinSelected;
+    private UnityEvent<ActionPinCollection> _onPinCollectionSelected;
 
     private void Start()
     {
         TurnController.AddStartPlacementListener(() => Show(true));
         foreach (var selector in _selectors)
         {
-            selector.AddOnClickListener(OnPinSelected);
+            selector.AddOnClickListener(OnPinCollectionSelected);
         }
     }
 
@@ -31,7 +31,7 @@ public class PinSelectionDisplay : MonoBehaviour
         TurnController.RemoveStartPlacementListener(() => Show(true));
         foreach (var selector in _selectors)
         {
-            selector.RemoveOnClickListener(OnPinSelected);
+            selector.RemoveOnClickListener(OnPinCollectionSelected);
         }
     }
 
@@ -58,19 +58,19 @@ public class PinSelectionDisplay : MonoBehaviour
         }
     }
 
-    private void OnPinSelected(ActionPinCollection data)
+    private void OnPinCollectionSelected(ActionPinCollection data)
     {
-        _onPinSelected?.Invoke(data);
+        _onPinCollectionSelected?.Invoke(data);
         Hide();
     }
 
-    public void AddPinSelectedListener(UnityAction<ActionPinCollection> listener)
+    public void AddPinCollectionSelectedListener(UnityAction<ActionPinCollection> listener)
     {
-        _onPinSelected.AddListener(listener);
+        _onPinCollectionSelected.AddListener(listener);
     }
 
-    public void RemovePinSelectedListener(UnityAction<ActionPinCollection> listener)
+    public void RemovePinCollectionSelectedListener(UnityAction<ActionPinCollection> listener)
     {
-        _onPinSelected.RemoveListener(listener);
+        _onPinCollectionSelected.RemoveListener(listener);
     }
 }

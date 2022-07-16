@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164bea03ba28f934c9151d141299b766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _width: 30
-  _height: 30
+  _width: 20
+  _height: 20
   _cellSize: 1
   _cellDisplayPrefab: {fileID: 3172661351437116532, guid: 4dbd13358ba43cb4fba202e987192de7, type: 3}
   _baseColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
@@ -53,5 +53,5 @@ MonoBehaviour:
   _disabledColor: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 1}
   _placeableColor: {r: 0.32626268, g: 0.6698113, b: 0.11163515, a: 1}
   _notPlaceableColor: {r: 0.5377358, g: 0.07440364, b: 0.07440364, a: 1}
-  _enableDebugPlacement: 1
+  _enableDebugPlacement: 0
   _debugObject: {fileID: 8298906634246615410, guid: 8c3af328494391a4b9897cf5d8734ac5, type: 3}

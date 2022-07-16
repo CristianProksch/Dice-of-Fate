@@ -82,7 +82,7 @@ public class PinGrid : MonoBehaviour
         y = Mathf.FloorToInt(temp.y / _cellSize);
     }
 
-    public bool IsValidGridPosition(int x, int y)
+    public bool IsValidGridPosition(int x, int y, bool checkPlaceable = false)
     {
         if (x < 0 || y < 0)
         {
@@ -90,6 +90,11 @@ public class PinGrid : MonoBehaviour
         }
 
         if (x > _width || y > _height)
+        {
+            return false;
+        }
+
+        if (checkPlaceable && _grid[x, y] != null)
         {
             return false;
         }
