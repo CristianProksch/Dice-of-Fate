@@ -78,7 +78,6 @@ public class DiceDispenser : MonoBehaviour
 
         if (finishedDiceThisTurn >= dicePerTurn)
         {
-            Debug.Log("DiDi - Go to next phase");
             TurnController.NextPhase();
         }
     }
