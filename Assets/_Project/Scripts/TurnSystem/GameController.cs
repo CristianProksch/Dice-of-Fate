@@ -112,6 +112,11 @@ public class GameController : MonoBehaviour
         return Instance._monsterForTurn[Instance._currentMonsterId++];
     }
 
+    public static int GetCurrentLevel()
+    {
+        return Instance._currentMonsterId + 1;
+    }
+
     public static void AddStartCombatListener(UnityAction listener)
     {
         Instance._onStartCombat.AddListener(listener);

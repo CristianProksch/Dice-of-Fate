@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: New Pin
   m_EditorClassIdentifier: 
   _id: 0
+  _level: 1
   _uiSprite: {fileID: 0}
   _pins:
   - {fileID: 0}

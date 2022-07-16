@@ -13,7 +13,7 @@ public class PinSelectionDisplay : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField]
-    private ActionPinCollection[] _availablePins;
+    private ActionPinCollection[] _availablePinCollections;
     [SerializeField]
     private UnityEvent<ActionPinCollection> _onPinCollectionSelected;
 
@@ -52,9 +52,11 @@ public class PinSelectionDisplay : MonoBehaviour
 
     public void RandomizePinSelection()
     {
+        _availablePinCollections = ActionPinCollectionManager.Instance.getCollectionsForPlayerLevel(GameController.GetCurrentLevel()).ToArray();
+
         foreach(var selector in _selectors)
         {
-            selector.ApplyData(_availablePins[Random.Range(0, _availablePins.Length)]);
+            selector.ApplyData(_availablePinCollections[Random.Range(0, _availablePinCollections.Length)]);
         }
     }
 
