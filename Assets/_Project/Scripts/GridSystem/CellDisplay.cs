@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
-public class CellDisplay : MonoBehaviour
+public class CellDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField]
     private SpriteRenderer _cellRenderer;
@@ -37,12 +38,12 @@ public class CellDisplay : MonoBehaviour
         _onMouseExit.AddListener(listener);
     }
 
-    private void OnMouseEnter()
+    public void OnPointerEnter(PointerEventData eventData)
     {
         _onMouseEnter?.Invoke();
     }
 
-    private void OnMouseExit()
+    public void OnPointerExit(PointerEventData eventData)
     {
         _onMouseExit?.Invoke();
     }
