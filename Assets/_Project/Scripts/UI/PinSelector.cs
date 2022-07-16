@@ -18,11 +18,11 @@ public class PinSelector : MonoBehaviour
     [Space(5)]
     [Header("Events")]
     [SerializeField]
-    private UnityEvent<ActionPinData> _onClick;
+    private UnityEvent<ActionPinCollection> _onClick;
 
-    private ActionPinData _currentPin;
+    private ActionPinCollection _currentPin;
 
-    public void ApplyData(ActionPinData data)
+    public void ApplyData(ActionPinCollection data)
     {
         _currentPin = data;
 
@@ -37,12 +37,12 @@ public class PinSelector : MonoBehaviour
         _onClick?.Invoke(_currentPin);
     }
 
-    public void AddOnClickListener(UnityAction<ActionPinData> listener)
+    public void AddOnClickListener(UnityAction<ActionPinCollection> listener)
     {
         _onClick.AddListener(listener);
     }
 
-    public void RemoveOnClickListener(UnityAction<ActionPinData> listener)
+    public void RemoveOnClickListener(UnityAction<ActionPinCollection> listener)
     {
         _onClick.RemoveListener(listener);
     }

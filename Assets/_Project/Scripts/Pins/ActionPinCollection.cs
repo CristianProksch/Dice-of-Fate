@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Custom/Pin Data", fileName = "New Pin")]
-public class ActionPinData : ScriptableObject
+public class ActionPinCollection : ScriptableObject
 {
     public Sprite uiSprite;
-    public ActionPin prefab;
+    public List<ActionPin> pins;
     public string displayName;
     public string description;
 }

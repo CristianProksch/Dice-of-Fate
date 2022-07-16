@@ -13,9 +13,9 @@ public class PinSelectionDisplay : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField]
-    private ActionPinData[] _availablePins;
+    private ActionPinCollection[] _availablePins;
     [SerializeField]
-    private UnityEvent<ActionPinData> _onPinSelected;
+    private UnityEvent<ActionPinCollection> _onPinSelected;
 
     private void Start()
     {
@@ -58,18 +58,18 @@ public class PinSelectionDisplay : MonoBehaviour
         }
     }
 
-    private void OnPinSelected(ActionPinData data)
+    private void OnPinSelected(ActionPinCollection data)
     {
         _onPinSelected?.Invoke(data);
         Hide();
     }
 
-    public void AddPinSelectedListener(UnityAction<ActionPinData> listener)
+    public void AddPinSelectedListener(UnityAction<ActionPinCollection> listener)
     {
         _onPinSelected.AddListener(listener);
     }
 
-    public void RemovePinSelectedListener(UnityAction<ActionPinData> listener)
+    public void RemovePinSelectedListener(UnityAction<ActionPinCollection> listener)
     {
         _onPinSelected.RemoveListener(listener);
     }

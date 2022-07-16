@@ -11,7 +11,7 @@ public class PlacementController : MonoBehaviour
     private PinSelectionDisplay _selectionDisplay;
     #endregion
 
-    private ActionPinData _pinToPlace;
+    private ActionPinCollection _pinToPlace;
 
     private void Start()
     {
@@ -44,7 +44,7 @@ public class PlacementController : MonoBehaviour
             return;
         }
 
-        _grid.PlacePin(InputController.GetMousePosition(), _pinToPlace.prefab);
+        //_grid.PlacePin(InputController.GetMousePosition(), _pinToPlace.pins);
         _pinToPlace = null;
 
         if (advancePhase)
@@ -53,7 +53,7 @@ public class PlacementController : MonoBehaviour
         }
     }
 
-    private void SetPinToPlace(ActionPinData pinData)
+    private void SetPinToPlace(ActionPinCollection pinData)
     {
         _pinToPlace = pinData;
     }
