@@ -4,23 +4,10 @@ using UnityEngine;
 
 public class HealComponent : PinComponentBase
 {
+    public int healAmount;
 
-    public float healAmount;
-
-    // Start is called before the first frame update
-    void Start()
+    internal override void TriggerAction(IPinOwner owner)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    internal override void TriggerAction()
-    {
-
+        owner.AddHealPower(healAmount);
     }
 }

@@ -9,6 +9,8 @@ public class PlacementController : MonoBehaviour
     private PinGrid _grid;
     [SerializeField]
     private PinSelectionDisplay _selectionDisplay;
+    [SerializeField]
+    private PlayerBehavior _player;
     #endregion
 
     private Queue<ActionPin> _pinsToPlace;
@@ -56,7 +58,8 @@ public class PlacementController : MonoBehaviour
         }
 
         var pin = _pinsToPlace.Dequeue();
-        _grid.PlacePin(InputController.GetMousePosition(), pin);
+        var pinObject = _grid.PlacePin(InputController.GetMousePosition(), pin);
+        pinObject.SetOwner(_player);
 
         if (_pinsToPlace.Count <= 0 && advancePhase)
         {

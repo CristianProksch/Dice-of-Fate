@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d0eade0bfdfb9f45a78ab049dd6e813, type: 3}
+  m_Name: WarriorPinCollection
+  m_EditorClassIdentifier: 
+  _id: 2
+  _level: 1
+  _uiSprite: {fileID: -1618849090, guid: d11090a5dfc4e064fa37b5e6a1531c18, type: 3}
+  _pins:
+  - {fileID: 3299954358008855759, guid: 07b069b9b7a75694a82b46b67e8b9556, type: 3}
+  - {fileID: 3299954358008855759, guid: 07b069b9b7a75694a82b46b67e8b9556, type: 3}
+  - {fileID: 3299954358008855759, guid: 25b5a3c8ab602a94b8820203407b4abb, type: 3}
+  - {fileID: 3299954358008855759, guid: 25b5a3c8ab602a94b8820203407b4abb, type: 3}
+  _displayName: Warrior
+  _description: Contains 2 Attack Pins and 2 Defense Pins

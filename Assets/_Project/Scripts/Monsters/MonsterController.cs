@@ -10,7 +10,7 @@ public struct MonsterPin
     public ActionPin prefab;
 }
 
-public class MonsterController : MonoBehaviour
+public class MonsterController : MonoBehaviour, IDamageable, IPinOwner
 {
     [SerializeField]
     private PinGrid _grid;
@@ -25,6 +25,17 @@ public class MonsterController : MonoBehaviour
     private Dictionary<ActionPin, MonsterPinType> _monsterPins;
     private List<ActionPin> _replacedPins;
 
+    private int _maxMonsterHealth;
+    private int _currentMonsterHealth;
+    private int _currentMonsterArmour;
+
+    private int _attackPower;
+    public int AttackPower { get { return _attackPower; } }
+    private int _armourPower;
+    public int ArmourPower { get { return _armourPower; } }
+    private int _healPower;
+    public int HealPower { get { return _healPower; } }
+
     private void Start()
     {
         _monsterPinPrefabs = new Dictionary<MonsterPinType, ActionPin>();
@@ -36,7 +47,7 @@ public class MonsterController : MonoBehaviour
         _monsterPins = new Dictionary<ActionPin, MonsterPinType>();
         _replacedPins = new List<ActionPin>();
 
-        TurnController.AddStartMonsterPlacementListener(() => ReplaceNeutralPins());
+        TurnController.AddStartMonsterPlacementListener(() => { ReplaceNeutralPins(); ResetArmour(); ResetPinPowers(); });
     }
 
     public void SpawnMonster(MonsterData monster)
@@ -49,6 +60,7 @@ public class MonsterController : MonoBehaviour
             var pin = _grid.PlacePin(pinData.xPosition, pinData.yPosition, _neutralPinPrefab);
             _monsterPins.Add(pin, pinData.type);
         }
+        InitializeHealth();
     }
 
     private void Clear()
@@ -80,8 +92,87 @@ public class MonsterController : MonoBehaviour
 
             var replacement = _grid.PlacePin(pin.transform.position, _monsterPinPrefabs[type]);
             _monsterPins.Add(replacement, type);
+            replacement.SetOwner(this);
         }
 
         TurnController.NextPhase();
     }
+
+    #region Damageable
+    public void InitializeHealth()
+    {
+        _maxMonsterHealth = _currentMonster.maxHealth;
+        _currentMonsterHealth = _currentMonster.maxHealth;
+    }
+
+    public void TakeDamage(int amount)
+    {
+        var actualDamage = amount - _currentMonsterArmour;
+        _currentMonsterArmour -= amount;
+        if (_currentMonsterArmour < 0)
+        {
+            _currentMonsterArmour = 0;
+        }
+
+        if (actualDamage <= 0)
+        {
+            return;
+        }
+
+        _currentMonsterHealth -= actualDamage;
+    }
+
+    public void HealDamage(int amount)
+    {
+        _currentMonsterHealth += amount;
+        _currentMonsterHealth = Mathf.Clamp(_currentMonsterHealth, 0, _maxMonsterHealth);
+    }
+
+    public void AddArmour(int amount)
+    {
+        _currentMonsterArmour += amount;
+    }
+
+    public void ResetArmour()
+    {
+        _currentMonsterArmour = 0;
+    }
+
+    public void CheckDeath()
+    {
+        if (_currentMonsterHealth <= 0)
+        {
+            OnDeath();
+        }
+    }
+
+    public void OnDeath()
+    {
+        GameController.OnMonsterHasDied();
+    }
+    #endregion
+
+    #region Pin Owner
+    public void AddAttackPower(int amount)
+    {
+        _attackPower += amount;
+    }
+
+    public void AddArmourPower(int amount)
+    {
+        _armourPower += amount;
+    }
+
+    public void AddHealPower(int amount)
+    {
+        _healPower += amount;
+    }
+
+    public void ResetPinPowers()
+    {
+        _attackPower = 0;
+        _armourPower = 0;
+        _healPower = 0;
+    }
+    #endregion
 }

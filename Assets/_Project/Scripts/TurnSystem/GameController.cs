@@ -126,6 +126,11 @@ public class GameController : MonoBehaviour
         return Instance._currentMonsterId + 1;
     }
 
+    public static void OnMonsterHasDied()
+    {
+        NextPhase();
+    }
+
     public static void AddStartCombatListener(UnityAction listener)
     {
         Instance._onStartCombat.AddListener(listener);
