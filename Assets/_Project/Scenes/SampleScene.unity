@@ -783,6 +783,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 126664b62e0c6bb449540403cf454f23, type: 2}
   - {fileID: 11400000, guid: dae3285de4f97dc48a367127218996c6, type: 2}
   - {fileID: 11400000, guid: 3ef83ca9b15494a4a97b9c1350fce0e5, type: 2}
+  _targetFrameRate: 30
   _player: {fileID: 837612920}
   _onStartCombat:
     m_PersistentCalls:
@@ -2128,6 +2129,7 @@ MonoBehaviour:
     prefab: {fileID: 1882989482174584524, guid: f88b5300b4b5d1b4f857d037a3bce64e, type: 3}
   - type: 3
     prefab: {fileID: 1882989482174584524, guid: 29f191d15b36364459c16b2a080029ab, type: 3}
+  _currentMonster: {fileID: 0}
 --- !u!4 &1975455391
 Transform:
   m_ObjectHideFlags: 0
