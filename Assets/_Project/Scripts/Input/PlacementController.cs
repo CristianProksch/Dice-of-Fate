@@ -23,6 +23,7 @@ public class PlacementController : MonoBehaviour
         TurnController.AddStartPlacementListener(AdjustGridVisibility);
         TurnController.AddStartMonsterPlacementListener(AdjustGridVisibility);
         InputController.AddMouseUpListener(() => TryPlacePin());
+        GameController.AddStartUpgradingListener(RemovePlayerPins);
         _selectionDisplay.AddPinCollectionSelectedListener(SetPinsToPlace);
     }
 
@@ -32,6 +33,7 @@ public class PlacementController : MonoBehaviour
         TurnController.RemoveStartPlacementListener(AdjustGridVisibility);
         TurnController.RemoveStartMonsterPlacementListener(AdjustGridVisibility);
         InputController.RemoveMouseUpListener(() => TryPlacePin());
+        GameController.RemoveStartUpgradingListener(RemovePlayerPins);
         _selectionDisplay.RemovePinCollectionSelectedListener(SetPinsToPlace);
     }
 
@@ -62,7 +64,7 @@ public class PlacementController : MonoBehaviour
         var pin = _pinsToPlace.Dequeue();
         var pinObject = _grid.PlacePin(InputController.GetMousePosition(), pin);
         pinObject.SetOwner(_player);
-        _playerpins.Add(pin);
+        _playerpins.Add(pinObject);
 
         if (_pinsToPlace.Count <= 0 && advancePhase)
         {
@@ -91,5 +93,13 @@ public class PlacementController : MonoBehaviour
         }
 
         _pinsToPlace = new Queue<ActionPin>(pinData.Pins);
+    }
+
+    private void RemovePlayerPins()
+    {
+        foreach(var pin in _playerpins)
+        {
+            _grid.RemovePin(pin);
+        }
     }
 }

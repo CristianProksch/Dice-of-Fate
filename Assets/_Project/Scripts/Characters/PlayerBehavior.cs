@@ -85,7 +85,7 @@ public class PlayerBehavior : MonoBehaviour, IDamageable, IPinOwner
 
     public void OnDeath()
     {
-        // TODO tell game controller the player died
+        GameController.OnPlayerHasDied();
     }
     #endregion
 

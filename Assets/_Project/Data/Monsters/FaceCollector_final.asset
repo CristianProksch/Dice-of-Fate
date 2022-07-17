@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4928aef863388274ba1689daed04add6, type: 3}
-  m_Name: ScreamingEagle
+  m_Name: FaceCollector_final
   m_EditorClassIdentifier: 
-  displayName: Screaming Eagle
-  monsterSprite: {fileID: 21300000, guid: c5ab30487c05b0d4a8dbe26610f9b92b, type: 3}
-  maxHealth: 175
-  pinsPerTurn: 3
+  displayName: Face Collector
+  monsterSprite: {fileID: 21300000, guid: 492dc7d0bdcc0c043a4a834ac7b8fff0, type: 3}
+  maxHealth: 300
+  pinsPerTurn: 4
   pins:
   - xPosition: 0
     yPosition: 2

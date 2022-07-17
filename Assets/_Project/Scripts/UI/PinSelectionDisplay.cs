@@ -8,26 +8,28 @@ public class PinSelectionDisplay : MonoBehaviour
 {
     [Header("References")]
     [SerializeField]
-    private GameObject _container;
+    internal GameObject _container;
     [SerializeField]
-    private PinSelector[] _selectors;
+    internal PinSelector[] _selectors;
     [SerializeField]
-    private PlayerBehavior _player;
+    internal PlayerBehavior _player;
 
     [Header("Settings")]
     [SerializeField]
-    private UnityEvent<ActionPinCollection> _onPinCollectionSelected;
+    internal UnityEvent<ActionPinCollection> _onPinCollectionSelected;
 
-    private void Start()
+    internal virtual void Start()
     {
         TurnController.AddStartPlacementListener(() => Show(true));
         foreach (var selector in _selectors)
         {
             selector.AddOnClickListener(OnPinCollectionSelected);
         }
+
+        Hide();
     }
 
-    private void OnDestroy()
+    internal virtual void OnDestroy()
     {
         TurnController.RemoveStartPlacementListener(() => Show(true));
         foreach (var selector in _selectors)
@@ -36,14 +38,19 @@ public class PinSelectionDisplay : MonoBehaviour
         }
     }
 
-    public void Show(bool randomizeSelection = false)
+    public virtual void Show(bool randomizeSelection = false)
     {
+        if (GameController.GetCurrentPhase() != GamePhase.Combat)
+        {
+            return;
+        }
+
+        _container.SetActive(true);
+
         if (randomizeSelection)
         {
             RandomizePinSelection();
         }
-
-        _container.SetActive(true);
     }
 
     public void Hide()
@@ -51,7 +58,7 @@ public class PinSelectionDisplay : MonoBehaviour
         _container.SetActive(false);
     }
 
-    public void RandomizePinSelection()
+    public virtual void RandomizePinSelection()
     {
         int amount = _selectors.Length;
         var collections = _player._actionPinCollectionCollection.GetRandomActionPinCollections(amount);
@@ -75,7 +82,7 @@ public class PinSelectionDisplay : MonoBehaviour
         }
     }
 
-    private void OnPinCollectionSelected(ActionPinCollection data)
+    internal virtual void OnPinCollectionSelected(ActionPinCollection data)
     {
         _onPinCollectionSelected?.Invoke(data);
         _player._actionPinCollectionCollection.SetActionPinCollectionPlaced(data);

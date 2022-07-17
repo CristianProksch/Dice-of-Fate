@@ -50,6 +50,11 @@ public class DiceDispenser : MonoBehaviour
 
     void SpawnDie()
     {
+        if (GameController.GetCurrentPhase() != GamePhase.Combat)
+        {
+            return;
+        }
+
         if (TurnController.GetCurrentPhase() != TurnPhase.Action)
         {
             return;
