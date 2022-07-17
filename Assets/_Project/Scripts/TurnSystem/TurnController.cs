@@ -120,6 +120,13 @@ public class TurnController : MonoBehaviour
 
     public static void NextPhase()
     {
+        Instance.StartCoroutine(Instance.NextPhaseOnNextFrame());
+    }
+
+    private IEnumerator NextPhaseOnNextFrame()
+    {
+        yield return null;
+
         var temp = (int)Instance._currentPhase;
         temp = ++temp % Enum.GetValues(typeof(TurnPhase)).Length;
 
