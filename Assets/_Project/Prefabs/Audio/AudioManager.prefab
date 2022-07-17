@@ -75,8 +75,26 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: HitPin
-    clip: {fileID: 8300000, guid: 2ba8285f19c220846a0e65263faa48ee, type: 3}
+  - name: HitPin1
+    clip: {fileID: 8300000, guid: fa384c9c7d81e6a4ba51c458d7f1379d, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HitPin2
+    clip: {fileID: 8300000, guid: 4ac153fe42ee8424a92f239598d59f72, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HitPin3
+    clip: {fileID: 8300000, guid: cd88978c04135fe4789fc9e11e7434c9, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HitPin4
+    clip: {fileID: 8300000, guid: 2953349a343c41f4296d7e8b16e25a3e, type: 3}
     volume: 0.6
     pitch: 1
     loop: 0
