@@ -184,5 +184,9 @@ public class MonsterController : MonoBehaviour, IDamageable, IPinOwner
         _armourPower = 0;
         _healPower = 0;
     }
+
+    public void AddMana(int manaRegenAmount)
+    {
+    }
     #endregion
 }
