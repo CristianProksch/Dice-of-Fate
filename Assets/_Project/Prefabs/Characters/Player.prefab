@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   _actionPinCollectionCollection: {fileID: 8979794326467213722}
-  _sprite: {fileID: 21300000, guid: 28f8487f3f03d1544bc18f63d4a58184, type: 3}
+  _sprite: {fileID: 21300000, guid: 152a63d803d22f74a8100e9b5bbf6cc8, type: 3}
 --- !u!114 &8979794326467213722
 MonoBehaviour:
   m_ObjectHideFlags: 0
