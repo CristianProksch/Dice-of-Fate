@@ -27,7 +27,8 @@ public class ActionPin : MonoBehaviour
     void Execute()
     {
         if(AudioManager.instance != null) {
-            AudioManager.instance.Play("HitPin");
+            int random = Random.Range(1, 5);
+            AudioManager.instance.Play("HitPin" + random.ToString());
         }
         if(pinAnimator != null) {
             pinAnimator.SetTrigger("Wobble");
