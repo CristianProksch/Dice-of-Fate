@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4928aef863388274ba1689daed04add6, type: 3}
+  m_Name: FaceCollector
+  m_EditorClassIdentifier: 
+  displayName: Face Collector
+  monsterSprite: {fileID: 21300000, guid: 492dc7d0bdcc0c043a4a834ac7b8fff0, type: 3}
+  maxHealth: 300
+  pinsPerTurn: 4
+  pins: []

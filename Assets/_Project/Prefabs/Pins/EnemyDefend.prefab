@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -1185940144, guid: ad8c1d0e935708a489c57714e656244e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6431373, g: 0.19607843, b: 0.13725491, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -175,6 +175,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2253513428447585368, guid: 37704a154e858fa4e8c01596a6ace945, type: 3}
+      propertyPath: pinComponents.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253513428447585368, guid: 37704a154e858fa4e8c01596a6ace945, type: 3}
+      propertyPath: pinComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 5902868356802696698}
     - target: {fileID: 7374283178305284621, guid: 37704a154e858fa4e8c01596a6ace945, type: 3}
       propertyPath: m_Name
       value: EnemyDefend
@@ -229,6 +237,24 @@ PrefabInstance:
       objectReference: {fileID: 1369182351, guid: c38b68867b1caa44383e89fba491e940, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37704a154e858fa4e8c01596a6ace945, type: 3}
+--- !u!1 &7147521613345757337 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7374283178305284621, guid: 37704a154e858fa4e8c01596a6ace945, type: 3}
+  m_PrefabInstance: {fileID: 389471702404362900}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5902868356802696698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7147521613345757337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3181032ed8288c4aa8832f7c48def33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defensePower: 1
 --- !u!4 &8035296236274313271 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7702480452619672227, guid: 37704a154e858fa4e8c01596a6ace945, type: 3}
