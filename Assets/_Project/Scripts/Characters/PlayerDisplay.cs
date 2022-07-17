@@ -20,6 +20,8 @@ public class PlayerDisplay : MonoBehaviour
     [SerializeField]
     private Image _healthFill;
     [SerializeField]
+    private Image _manaFill;
+    [SerializeField]
     private TextMeshProUGUI _healthText;
     [SerializeField]
     private TextMeshProUGUI _attackText;
@@ -27,6 +29,8 @@ public class PlayerDisplay : MonoBehaviour
     private TextMeshProUGUI _defenseText;
     [SerializeField]
     private TextMeshProUGUI _healText;
+    [SerializeField]
+    private TextMeshProUGUI _manaText;
     #endregion
 
     private void Update()
@@ -57,7 +61,9 @@ public class PlayerDisplay : MonoBehaviour
         _playerImage.sprite = _player.PlayerSprite;
 
         _healthText.text = $"{_player.CurrentHealth} / {_player.MaxHealth}";
+        _manaText.text = $"{_player.CurrentMana} / {_player.MaxMana}";
         _healthFill.fillAmount = (float)_player.CurrentHealth / (float)_player.MaxHealth;
+        _manaFill.fillAmount = (float)_player.CurrentMana / (float)_player.MaxMana;
 
         _attackText.text = _player.AttackPower.ToString();
         _defenseText.text = _player.ArmourPower.ToString();

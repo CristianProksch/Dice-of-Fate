@@ -7,6 +7,8 @@ public class PlayerBehavior : MonoBehaviour, IDamageable, IPinOwner
     [SerializeField]
     private int _maxHealth;
     [SerializeField]
+    private int _maxMana;
+    [SerializeField]
     private Animator _slashAnimator;
     [SerializeField]
     public ActionPinCollectionCollection _actionPinCollectionCollection;
@@ -17,6 +19,9 @@ public class PlayerBehavior : MonoBehaviour, IDamageable, IPinOwner
 
     public int MaxHealth { get { return _maxHealth; } }
     private int _currentHealth;
+    public int MaxMana { get { return _maxMana; } }
+    private int _currentMana;
+    public int CurrentMana { get { return _currentMana; } }
     public int CurrentHealth { get { return _currentHealth; } }
     private int _currentArmour;
 
@@ -30,6 +35,7 @@ public class PlayerBehavior : MonoBehaviour, IDamageable, IPinOwner
     private void Start()
     {
         InitializeHealth();
+        InitializeMana();
         TurnController.AddStartMonsterPlacementListener(() => { ResetArmour(); ResetPinPowers(); });
     }
 
@@ -37,6 +43,11 @@ public class PlayerBehavior : MonoBehaviour, IDamageable, IPinOwner
     public void InitializeHealth()
     {
         _currentHealth = _maxHealth;
+    }
+
+    public void InitializeMana()
+    {
+        _currentMana = 0;
     }
 
     public void TakeDamage(int amount)
@@ -62,6 +73,13 @@ public class PlayerBehavior : MonoBehaviour, IDamageable, IPinOwner
     {
         _currentHealth += amount;
         _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth);
+        AudioManager.instance.Play("Heal");
+    }
+
+    public void AddMana(int amount)
+    {
+        _currentMana += amount;
+        _currentMana = Mathf.Clamp(_currentMana, 0, _maxMana);
         AudioManager.instance.Play("Heal");
     }
 
@@ -111,6 +129,16 @@ public class PlayerBehavior : MonoBehaviour, IDamageable, IPinOwner
         _attackPower = 0;
         _armourPower = 0;
         _healPower = 0;
+    }
+
+    public int GetCurrentMana()
+    {
+        return _currentMana;
+    }
+
+    public void loseMana(int amount)
+    {
+        _currentMana -= amount;
     }
     #endregion
 }
