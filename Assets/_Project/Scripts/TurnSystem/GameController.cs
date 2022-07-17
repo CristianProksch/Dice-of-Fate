@@ -35,6 +35,8 @@ public class GameController : MonoBehaviour
     private List<MonsterData> _monsters;
     [SerializeField]
     private List<ActionPinCollection> _playerStartCollections;
+    [SerializeField]
+    private int _targetFrameRate;
 
     [Space(5)]
     [Header("Scene References")]
@@ -64,6 +66,8 @@ public class GameController : MonoBehaviour
         _currentMonsterId = -1;
 
         _player._actionPinCollectionCollection.AddRange(_playerStartCollections);
+
+        Application.targetFrameRate = _targetFrameRate;
     }
 
     private IEnumerator Start()
@@ -124,6 +128,11 @@ public class GameController : MonoBehaviour
     public static int GetCurrentLevel()
     {
         return Instance._currentMonsterId + 1;
+    }
+
+    public static void OnMonsterHasDied()
+    {
+        NextPhase();
     }
 
     public static void AddStartCombatListener(UnityAction listener)

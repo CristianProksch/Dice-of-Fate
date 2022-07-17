@@ -4,24 +4,10 @@ using UnityEngine;
 
 public class DefendComponent : PinComponentBase
 {
+    public int defensePower;
 
-    public float defensePower;
-
-
-    // Start is called before the first frame update
-    void Start()
+    internal override void TriggerAction(IPinOwner owner)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    internal override void TriggerAction()
-    {
-
+        owner.AddArmourPower(defensePower);
     }
 }
