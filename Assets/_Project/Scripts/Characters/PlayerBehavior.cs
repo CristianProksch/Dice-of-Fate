@@ -7,6 +7,8 @@ public class PlayerBehavior : MonoBehaviour, IDamageable, IPinOwner
     [SerializeField]
     private int _maxHealth;
     [SerializeField]
+    private int _maxMana;
+    [SerializeField]
     public ActionPinCollectionCollection _actionPinCollectionCollection;
     [SerializeField]
     private Sprite _sprite;
@@ -24,6 +26,9 @@ public class PlayerBehavior : MonoBehaviour, IDamageable, IPinOwner
     public int ArmourPower { get { return _armourPower; } }
     private int _healPower;
     public int HealPower { get { return _healPower; } }
+
+    public int MaxMana { get { return _maxHealth; } }
+    private int _currentMana;
 
     private void Start()
     {
@@ -105,6 +110,12 @@ public class PlayerBehavior : MonoBehaviour, IDamageable, IPinOwner
         _attackPower = 0;
         _armourPower = 0;
         _healPower = 0;
+    }
+
+    public void AddMana(int amount)
+    {
+        _currentMana += amount;
+        _currentMana = Mathf.Clamp(_currentMana, 0, _maxMana);
     }
     #endregion
 }
