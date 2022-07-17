@@ -14,8 +14,6 @@ public interface IPinOwner
 
     }
 
-    void AddMana(int manaRegenAmount);
-
     public virtual void AddHealPower(int amount)
     {
 
