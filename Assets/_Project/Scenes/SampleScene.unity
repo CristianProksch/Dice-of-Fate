@@ -381,6 +381,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b6c670f0706e84246907beb0e489881a, type: 2}
   - {fileID: 11400000, guid: 055f579db2fd4a14fb029de53d06192c, type: 2}
   - {fileID: 11400000, guid: 4288cf9295f53fb4aba6009e9b6c43ad, type: 2}
+  - {fileID: 11400000, guid: dd1093476818c924382940e993c43b51, type: 2}
   _playerStartCollections:
   - {fileID: 11400000, guid: 126664b62e0c6bb449540403cf454f23, type: 2}
   - {fileID: 11400000, guid: dae3285de4f97dc48a367127218996c6, type: 2}
