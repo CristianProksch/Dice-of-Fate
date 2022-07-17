@@ -53,6 +53,11 @@ public class ActionPinCollectionCollection : MonoBehaviour
 
     public void ResetAvailability()
     {
-        _availableCollections = _availableCollections.Concat(_placedCollections).ToList();
+        foreach(var collection in _placedCollections)
+        {
+            Add(collection);
+        }
+
+        _placedCollections.Clear();
     }
 }
