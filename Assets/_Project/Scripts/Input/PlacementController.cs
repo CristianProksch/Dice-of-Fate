@@ -15,6 +15,8 @@ public class PlacementController : MonoBehaviour
 
     private Queue<ActionPin> _pinsToPlace;
 
+    private List<ActionPin> _playerpins = new List<ActionPin>();
+
     private void Start()
     {
         TurnController.AddStartActionListener(AdjustGridVisibility);
@@ -60,6 +62,7 @@ public class PlacementController : MonoBehaviour
         var pin = _pinsToPlace.Dequeue();
         var pinObject = _grid.PlacePin(InputController.GetMousePosition(), pin);
         pinObject.SetOwner(_player);
+        _playerpins.Add(pin);
 
         if (_pinsToPlace.Count <= 0 && advancePhase)
         {
