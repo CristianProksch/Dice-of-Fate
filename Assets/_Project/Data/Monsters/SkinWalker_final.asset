@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Skin Walker
   monsterSprite: {fileID: 21300000, guid: f8c22fff501f31c429414e207229fd36, type: 3}
-  maxHealth: 200
+  maxHealth: 100
   pinsPerTurn: 2
   pins:
   - xPosition: 1

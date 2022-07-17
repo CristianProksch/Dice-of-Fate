@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Face Collector
   monsterSprite: {fileID: 21300000, guid: 492dc7d0bdcc0c043a4a834ac7b8fff0, type: 3}
-  maxHealth: 300
+  maxHealth: 200
   pinsPerTurn: 4
   pins:
   - xPosition: 0
