@@ -31,7 +31,6 @@ public class PlayerBehavior : MonoBehaviour, IDamageable, IPinOwner
     {
         InitializeHealth();
         TurnController.AddStartMonsterPlacementListener(() => { ResetArmour(); ResetPinPowers(); });
-        GameController.AddStartCombatListener(() => { _actionPinCollectionCollection.ResetAvailability(); });
     }
 
     #region Damageable

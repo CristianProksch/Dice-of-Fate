@@ -67,6 +67,7 @@ public class UpgradeDisplay : PinSelectionDisplay
     {
         _onPinCollectionSelected?.Invoke(data);
         _player._actionPinCollectionCollection.Add(data);
+        _player._actionPinCollectionCollection.ResetAvailability();
         GameController.NextPhase();
         Hide();
     }

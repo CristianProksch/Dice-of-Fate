@@ -68,6 +68,7 @@ public class PinSelectionDisplay : MonoBehaviour
             if (i < collections.Count)
             {
                 _selectors[i].ApplyData(collections[i]);
+                _selectors[i].Show();
             }
             else
             {
