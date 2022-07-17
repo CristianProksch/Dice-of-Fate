@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: 4
   _level: 1
-  _uiSprite: {fileID: -338272447, guid: d11090a5dfc4e064fa37b5e6a1531c18, type: 3}
+  _uiSprite: {fileID: 1111915503, guid: d11090a5dfc4e064fa37b5e6a1531c18, type: 3}
   _pins:
   - {fileID: 3299954358008855759, guid: 07b069b9b7a75694a82b46b67e8b9556, type: 3}
   - {fileID: 3299954358008855759, guid: 07b069b9b7a75694a82b46b67e8b9556, type: 3}
