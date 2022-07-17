@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,8 @@ public class PinGrid : MonoBehaviour
     internal float _cellSize;
     [SerializeField]
     internal CellDisplay _cellDisplayPrefab;
+    [SerializeField]
+    private int minDistanceToPlayerPin;
 
     [Space(5)]
     [Header("Display Settings")]
@@ -37,7 +40,7 @@ public class PinGrid : MonoBehaviour
     #endregion
 
     private CellDisplay[,] _gridBackground;
-    private ActionPin[,] _grid;
+    private bool[,] _grid;
 
     internal virtual void Start()
     {
@@ -47,12 +50,13 @@ public class PinGrid : MonoBehaviour
         }
 
         _gridBackground = new CellDisplay[_width, _height];
-        _grid = new ActionPin[_width, _height];
+        _grid = new bool[_width, _height];
 
         for (int x = 0; x < _width; x++)
         {
             for (int y = 0; y < _height; y++)
             {
+                _grid[x, y] = true;
                 var cellDisplay = Instantiate(_cellDisplayPrefab, GetWorldPosition(x, y, true), Quaternion.identity, transform);
                 _gridBackground[x, y] = cellDisplay;
                 _gridBackground[x, y].AddMouseEnterListener(() => HighlightCell(cellDisplay));
@@ -61,6 +65,11 @@ public class PinGrid : MonoBehaviour
                 ResetCellColor(cellDisplay);
             }
         }
+    }
+
+    internal bool IsPlaceblaByPlayer(int x, int y)
+    {
+        return _grid[x, y];
     }
 
     internal Vector3 GetWorldPosition(int x, int y, bool getCenter = false)
@@ -89,12 +98,12 @@ public class PinGrid : MonoBehaviour
             return false;
         }
 
-        if (x > _width || y > _height)
+        if (x > _width-1 || y > _height-1)
         {
             return false;
         }
 
-        if (checkPlaceable && _grid[x, y] != null)
+        if (checkPlaceable && !_grid[x, y])
         {
             return false;
         }
@@ -105,7 +114,8 @@ public class PinGrid : MonoBehaviour
     public ActionPin PlacePin(int x, int y, ActionPin prefab)
     {
         var pin = Instantiate(prefab, GetWorldPosition(x, y, true), Quaternion.identity);
-        _grid[x, y] = pin;
+
+        SetSurroundingNotPlaceble(minDistanceToPlayerPin,x, y);
 
         return pin;
     }
@@ -116,9 +126,19 @@ public class PinGrid : MonoBehaviour
         return PlacePin(x, y, prefab);
     }
 
-    public ActionPin GetPin(int x, int y)
+    public void SetSurroundingNotPlaceble(int fields , int x, int y)
     {
-        return _grid[x, y];
+        for(int i = x-fields; i <= x + fields; i++)
+        {
+            for (int j = y-fields; j <= y+fields; j++)
+            {
+                if (IsValidGridPosition(i, j, false))
+                {
+                    _grid[i, j] = false;
+                    ResetCellColor(_gridBackground[i, j]);
+                }
+            }
+        }
     }
 
     internal void HighlightCell(CellDisplay cell)
@@ -126,7 +146,7 @@ public class PinGrid : MonoBehaviour
         GetGridPosition(cell.transform.position, out int x, out int y);
 
         // TODO: Actual implementation
-        if (_grid[x, y] != null)
+        if (_grid[x, y]==false)
         {
             _gridBackground[x, y].SetColor(_disabledColor);
         }
@@ -141,7 +161,7 @@ public class PinGrid : MonoBehaviour
         GetGridPosition(cell.transform.position, out int x, out int y);
 
         // TODO: Actual implementation
-        if (_grid[x, y] != null)
+        if (_grid[x, y] == false)
         {
             _gridBackground[x, y].SetColor(_disabledColor);
         }
