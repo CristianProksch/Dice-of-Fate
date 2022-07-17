@@ -21,4 +21,5 @@ MonoBehaviour:
   - {fileID: 3299954358008855759, guid: ef9986d9f47198d43999fbc049061091, type: 3}
   - {fileID: 3299954358008855759, guid: 5fef032a173b0634ab6602be92d98a17, type: 3}
   _displayName: Sourcerers
-  _description: Contains 4 Mana Pins
+  _description: Contains 3 Mana Pins And one Explosion Pin dealing 50 damage if you
+    have 30 Mana

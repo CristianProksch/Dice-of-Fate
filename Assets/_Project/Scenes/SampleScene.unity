@@ -694,7 +694,7 @@ MonoBehaviour:
   _playerStartCollections:
   - {fileID: 11400000, guid: 126664b62e0c6bb449540403cf454f23, type: 2}
   - {fileID: 11400000, guid: dae3285de4f97dc48a367127218996c6, type: 2}
-  - {fileID: 11400000, guid: 32d49e8f9df94bb4abb19a8d8563b48f, type: 2}
+  - {fileID: 11400000, guid: 3ef83ca9b15494a4a97b9c1350fce0e5, type: 2}
   _targetFrameRate: 30
   _player: {fileID: 837612920}
   _onStartCombat:
