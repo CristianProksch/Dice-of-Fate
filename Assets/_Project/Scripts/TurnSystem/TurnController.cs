@@ -79,7 +79,7 @@ public class TurnController : MonoBehaviour
 
         yield return new WaitForSeconds(.25f);
 
-        _player.TakeDamage(_monsterController.ArmourPower);
+        _player.TakeDamage(_monsterController.AttackPower);
 
         yield return new WaitForSeconds(.25f);
 
