@@ -4,19 +4,19 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MonsterDisplay : MonoBehaviour
+public class PlayerDisplay : MonoBehaviour
 {
     #region Inspector
     [Header("References")]
     [SerializeField]
-    private MonsterController _monsterController;
+    private PlayerBehavior _player;
 
     [Space(5)]
     [Header("Display References")]
     [SerializeField]
     private GameObject _container;
     [SerializeField]
-    private Image _monsterImage;
+    private Image _playerImage;
     [SerializeField]
     private Image _healthFill;
     [SerializeField]
@@ -31,7 +31,7 @@ public class MonsterDisplay : MonoBehaviour
 
     private void Update()
     {
-        if (GameController.GetCurrentPhase() == GamePhase.Upgrading || _monsterController._currentMonster == null)
+        if (GameController.GetCurrentPhase() == GamePhase.Upgrading)
         {
             Hide();
         }
@@ -54,13 +54,13 @@ public class MonsterDisplay : MonoBehaviour
 
     private void UpdateContent()
     {
-        _monsterImage.sprite = _monsterController.MonsterSprite;
+        _playerImage.sprite = _player.PlayerSprite;
 
-        _healthText.text = $"{_monsterController.CurrentMonsterHealth} / {_monsterController.MaxMonsterHealth}";
-        _healthFill.fillAmount = (float)_monsterController.CurrentMonsterHealth / (float)_monsterController.MaxMonsterHealth;
+        _healthText.text = $"{_player.CurrentHealth} / {_player.MaxHealth}";
+        _healthFill.fillAmount = (float)_player.CurrentHealth / (float)_player.MaxHealth;
 
-        _attackText.text = _monsterController.AttackPower.ToString();
-        _defenseText.text = _monsterController.ArmourPower.ToString();
-        _healText.text = _monsterController.HealPower.ToString();
+        _attackText.text = _player.AttackPower.ToString();
+        _defenseText.text = _player.ArmourPower.ToString();
+        _healText.text = _player.HealPower.ToString();
     }
 }

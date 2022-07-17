@@ -8,8 +8,14 @@ public class PlayerBehavior : MonoBehaviour, IDamageable, IPinOwner
     private int _maxHealth;
     [SerializeField]
     public ActionPinCollectionCollection _actionPinCollectionCollection;
+    [SerializeField]
+    private Sprite _sprite;
 
+    public Sprite PlayerSprite { get { return _sprite; } }
+
+    public int MaxHealth { get { return _maxHealth; } }
     private int _currentHealth;
+    public int CurrentHealth { get { return _currentHealth; } }
     private int _currentArmour;
 
     private int _attackPower;
@@ -21,6 +27,7 @@ public class PlayerBehavior : MonoBehaviour, IDamageable, IPinOwner
 
     private void Start()
     {
+        InitializeHealth();
         TurnController.AddStartMonsterPlacementListener(() => { ResetArmour(); ResetPinPowers(); });
     }
 

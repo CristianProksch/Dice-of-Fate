@@ -56,7 +56,7 @@ public class TurnController : MonoBehaviour
     private void Start()
     {
         GameController.AddStartCombatListener(() => StartCombat());
-        GameController.AddStartUpgradingListener(() => StopCoroutine(_applyPinsCoroutine));
+        GameController.AddStartUpgradingListener(() => { if (_applyPinsCoroutine != null) { StopCoroutine(_applyPinsCoroutine); _applyPinsCoroutine = null; } });
     }
 
     private void StartCombat()
