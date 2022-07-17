@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6080861400836061353}
   - component: {fileID: 7885219528537640636}
+  - component: {fileID: 3521959698560838822}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -84,6 +85,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3521959698560838822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5695341036771284438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 112b1cc4bb079c5428d721f9e774ab5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possibleSprites:
+  - {fileID: -61997093, guid: d11090a5dfc4e064fa37b5e6a1531c18, type: 3}
+  - {fileID: -1618849090, guid: d11090a5dfc4e064fa37b5e6a1531c18, type: 3}
+  - {fileID: 1813088283, guid: d11090a5dfc4e064fa37b5e6a1531c18, type: 3}
+  - {fileID: 569858559, guid: d11090a5dfc4e064fa37b5e6a1531c18, type: 3}
+  - {fileID: -338272447, guid: d11090a5dfc4e064fa37b5e6a1531c18, type: 3}
+  - {fileID: 1111915503, guid: d11090a5dfc4e064fa37b5e6a1531c18, type: 3}
+  - {fileID: 1555415429, guid: d11090a5dfc4e064fa37b5e6a1531c18, type: 3}
+  - {fileID: 1324198983, guid: d11090a5dfc4e064fa37b5e6a1531c18, type: 3}
+  spriteRenderer: {fileID: 7885219528537640636}
 --- !u!1 &8191672939707683943
 GameObject:
   m_ObjectHideFlags: 0
