@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class ActionPinCollectionCollection : MonoBehaviour
 {
+    [SerializeField]
+    private PinBagDisplay _display;
+
     private List<ActionPinCollection> _availableCollections = new List<ActionPinCollection>();
     private List<ActionPinCollection> _placedCollections = new List<ActionPinCollection>();
 
@@ -23,6 +26,7 @@ public class ActionPinCollectionCollection : MonoBehaviour
     {
         _availableCollections.Remove(toRemove);
         _placedCollections.Remove(toRemove);
+        _display.UpdatePreviews(_availableCollections);
     }
 
     public void SetActionPinCollectionPlaced(ActionPinCollection collection)
@@ -31,6 +35,7 @@ public class ActionPinCollectionCollection : MonoBehaviour
         {
             _availableCollections.Remove(collection);
             _placedCollections.Add(collection);
+            _display.UpdatePreviews(_availableCollections);
         }
         else
         {
@@ -41,6 +46,7 @@ public class ActionPinCollectionCollection : MonoBehaviour
     public void Add(ActionPinCollection toAdd)
     {
         _availableCollections.Add(toAdd);
+        _display.UpdatePreviews(_availableCollections);
     }
 
     public void AddRange(IEnumerable<ActionPinCollection> items)
@@ -59,5 +65,6 @@ public class ActionPinCollectionCollection : MonoBehaviour
         }
 
         _placedCollections.Clear();
+        _display.UpdatePreviews(_availableCollections);
     }
 }

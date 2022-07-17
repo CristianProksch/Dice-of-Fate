@@ -176,6 +176,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2253513428447585368, guid: 37704a154e858fa4e8c01596a6ace945, type: 3}
+      propertyPath: displayName
+      value: Heal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253513428447585368, guid: 37704a154e858fa4e8c01596a6ace945, type: 3}
       propertyPath: pinComponents.Array.size
       value: 1
       objectReference: {fileID: 0}
