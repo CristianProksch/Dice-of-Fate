@@ -21,13 +21,17 @@ public class MonsterController : MonoBehaviour, IDamageable, IPinOwner
 
     private Dictionary<MonsterPinType, ActionPin> _monsterPinPrefabs;
 
-    private MonsterData _currentMonster;
+    [HideInInspector]
+    public MonsterData _currentMonster;
     private Dictionary<ActionPin, MonsterPinType> _monsterPins;
     private List<ActionPin> _replacedPins;
 
     private int _maxMonsterHealth;
+    public int MaxMonsterHealth { get { return _maxMonsterHealth; } }
     private int _currentMonsterHealth;
+    public int CurrentMonsterHealth { get { return _currentMonsterHealth; } }
     private int _currentMonsterArmour;
+    public int CurrentMonsterArmour { get { return _currentMonsterArmour; } }
 
     private int _attackPower;
     public int AttackPower { get { return _attackPower; } }
@@ -35,6 +39,8 @@ public class MonsterController : MonoBehaviour, IDamageable, IPinOwner
     public int ArmourPower { get { return _armourPower; } }
     private int _healPower;
     public int HealPower { get { return _healPower; } }
+
+    public Sprite MonsterSprite { get { return _currentMonster.monsterSprite; } }
 
     private void Start()
     {
