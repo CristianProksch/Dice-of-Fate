@@ -1242,8 +1242,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _monsters:
-  - {fileID: 11400000, guid: 496dfb563fe34b749bd17bfff7996419, type: 2}
-  - {fileID: 11400000, guid: 496dfb563fe34b749bd17bfff7996419, type: 2}
+  - {fileID: 11400000, guid: c69283dba263b72448ddf3db1b53bf27, type: 2}
+  - {fileID: 11400000, guid: e5e210ff0136ba8448dd5dabdf4f2dcf, type: 2}
+  - {fileID: 11400000, guid: 4a93b277fc3c9434a9e9d3b9073ffd1c, type: 2}
+  - {fileID: 11400000, guid: 4288cf9295f53fb4aba6009e9b6c43ad, type: 2}
   _playerStartCollections:
   - {fileID: 11400000, guid: 126664b62e0c6bb449540403cf454f23, type: 2}
   - {fileID: 11400000, guid: dae3285de4f97dc48a367127218996c6, type: 2}
