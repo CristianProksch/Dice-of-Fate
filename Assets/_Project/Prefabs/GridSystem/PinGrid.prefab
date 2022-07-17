@@ -48,6 +48,7 @@ MonoBehaviour:
   _height: 20
   _cellSize: 1
   _cellDisplayPrefab: {fileID: 3172661351437116532, guid: 4dbd13358ba43cb4fba202e987192de7, type: 3}
+  minDistanceToPlayerPin: 1
   _baseColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
   _hoverColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   _disabledColor: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 1}
