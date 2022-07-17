@@ -30,7 +30,7 @@ public class ActionPinCollectionDB : MonoBehaviour
 
     public static ActionPinCollection GetRandomActionPinCollection(int level)
     {
-        var selectable = allAvailable.Where(item => item.level == level).ToList();
+        var selectable = allAvailable.Where(item => item.level <= level).ToList();
         if (selectable.Count() == 0)
             throw new Exception($"no ActionPinCollection with level {level} found in DB");
 

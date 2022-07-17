@@ -101,5 +101,7 @@ public class PlacementController : MonoBehaviour
         {
             _grid.RemovePin(pin);
         }
+
+        _playerpins.Clear();
     }
 }
