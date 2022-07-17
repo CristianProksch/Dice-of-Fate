@@ -49,9 +49,9 @@ MonoBehaviour:
   _cellSize: 1
   _cellDisplayPrefab: {fileID: 3172661351437116532, guid: 4dbd13358ba43cb4fba202e987192de7, type: 3}
   minDistanceToPlayerPin: 1
-  _baseColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
+  _baseColor: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 0.49411765}
   _hoverColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
-  _disabledColor: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 1}
+  _disabledColor: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 0.2627451}
   _placeableColor: {r: 0.32626268, g: 0.6698113, b: 0.11163515, a: 1}
   _notPlaceableColor: {r: 0.5377358, g: 0.07440364, b: 0.07440364, a: 1}
   _enableDebugPlacement: 0
