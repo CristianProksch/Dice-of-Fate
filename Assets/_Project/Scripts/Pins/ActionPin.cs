@@ -7,6 +7,7 @@ public class ActionPin : MonoBehaviour
 
     public PinComponentBase[] pinComponents;
     public Rigidbody2D rb2d;
+    public Animator pinAnimator;
 
     private IPinOwner _owner;
 
@@ -25,6 +26,12 @@ public class ActionPin : MonoBehaviour
 
     void Execute()
     {
+        if(AudioManager.instance != null) {
+            AudioManager.instance.Play("HitPin");
+        }
+        if(pinAnimator != null) {
+            pinAnimator.SetTrigger("Wobble");
+        }
         foreach (PinComponentBase comp in pinComponents)
         {
             comp.TriggerAction(_owner);
