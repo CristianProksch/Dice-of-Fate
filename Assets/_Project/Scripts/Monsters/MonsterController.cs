@@ -130,6 +130,7 @@ public class MonsterController : MonoBehaviour, IDamageable, IPinOwner
 
         _currentMonsterHealth -= actualDamage;
         _slashAnimator.SetTrigger("Play");
+        AudioManager.instance.Play("Attack");
     }
 
     public void HealDamage(int amount)

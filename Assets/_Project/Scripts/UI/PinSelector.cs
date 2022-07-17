@@ -42,6 +42,7 @@ public class PinSelector : MonoBehaviour
 
     public void OnClick()
     {
+        AudioManager.instance.Play("SelectPinCollection");
         _onClick?.Invoke(_currentPin);
     }
 

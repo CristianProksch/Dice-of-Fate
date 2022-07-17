@@ -74,6 +74,8 @@ public class DiceDispenser : MonoBehaviour
         var die = Instantiate(diePrefab, transform.position, rotation);
         die.AddDieFinishedListener(() => OnDieFinished());
 
+        AudioManager.instance.Play("SpawnDice");
+
         spawnedThisTurn++;
     }
 

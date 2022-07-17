@@ -56,17 +56,20 @@ public class PlayerBehavior : MonoBehaviour, IDamageable, IPinOwner
 
         _currentHealth -= actualDamage;
         _slashAnimator.SetTrigger("Play");
+        AudioManager.instance.Play("EnemyAttack");
     }
 
     public void HealDamage(int amount)
     {
         _currentHealth += amount;
         _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth);
+        AudioManager.instance.Play("Heal");
     }
 
     public void AddArmour(int amount)
     {
         _currentArmour += amount;
+        AudioManager.instance.Play("Defense");
     }
 
     public void ResetArmour()

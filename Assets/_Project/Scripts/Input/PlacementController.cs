@@ -66,6 +66,8 @@ public class PlacementController : MonoBehaviour
         pinObject.SetOwner(_player);
         _playerpins.Add(pinObject);
 
+        AudioManager.instance.Play("PlacePin");
+
         if (_pinsToPlace.Count <= 0 && advancePhase)
         {
             TurnController.NextPhase();
