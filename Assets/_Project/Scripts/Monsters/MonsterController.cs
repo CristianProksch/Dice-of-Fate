@@ -95,6 +95,7 @@ public class MonsterController : MonoBehaviour, IDamageable, IPinOwner
             var type = _monsterPins[pin];
             neutralPins.Remove(pin);
             _monsterPins.Remove(pin);
+            _grid.RemovePin(pin);
 
             var replacement = _grid.PlacePin(pin.transform.position, _monsterPinPrefabs[type]);
             _monsterPins.Add(replacement, type);
