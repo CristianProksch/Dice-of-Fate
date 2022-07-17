@@ -10,115 +10,94 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4928aef863388274ba1689daed04add6, type: 3}
-  m_Name: ScreamingEagle
+  m_Name: ScreamingEagle_final
   m_EditorClassIdentifier: 
   displayName: Screaming Eagle
   monsterSprite: {fileID: 21300000, guid: c5ab30487c05b0d4a8dbe26610f9b92b, type: 3}
   maxHealth: 175
   pinsPerTurn: 3
   pins:
-  - xPosition: 0
-    yPosition: 2
-    type: 1
-  - xPosition: 0
-    yPosition: 9
-    type: 2
-  - xPosition: 0
-    yPosition: 16
-    type: 3
   - xPosition: 1
     yPosition: 1
     type: 1
   - xPosition: 1
-    yPosition: 10
+    yPosition: 3
     type: 2
-  - xPosition: 3
-    yPosition: 2
-    type: 1
-  - xPosition: 3
-    yPosition: 9
-    type: 2
-  - xPosition: 3
+  - xPosition: 1
     yPosition: 16
-    type: 3
-  - xPosition: 4
-    yPosition: 1
+    type: 2
+  - xPosition: 1
+    yPosition: 18
     type: 1
   - xPosition: 4
-    yPosition: 10
-    type: 2
-  - xPosition: 6
     yPosition: 2
+    type: 3
+  - xPosition: 4
+    yPosition: 4
     type: 1
-  - xPosition: 6
-    yPosition: 9
-    type: 2
-  - xPosition: 6
-    yPosition: 16
+  - xPosition: 4
+    yPosition: 15
+    type: 1
+  - xPosition: 4
+    yPosition: 17
     type: 3
   - xPosition: 7
-    yPosition: 1
+    yPosition: 3
     type: 1
   - xPosition: 7
-    yPosition: 10
+    yPosition: 5
     type: 2
-  - xPosition: 9
-    yPosition: 2
-    type: 1
-  - xPosition: 9
-    yPosition: 9
+  - xPosition: 7
+    yPosition: 14
     type: 2
-  - xPosition: 9
+  - xPosition: 7
     yPosition: 16
-    type: 3
-  - xPosition: 10
-    yPosition: 1
     type: 1
   - xPosition: 10
-    yPosition: 10
-    type: 2
-  - xPosition: 12
-    yPosition: 2
+    yPosition: 4
+    type: 3
+  - xPosition: 10
+    yPosition: 6
     type: 1
-  - xPosition: 12
-    yPosition: 9
-    type: 2
-  - xPosition: 12
-    yPosition: 16
+  - xPosition: 10
+    yPosition: 13
+    type: 1
+  - xPosition: 10
+    yPosition: 15
     type: 3
   - xPosition: 13
-    yPosition: 1
+    yPosition: 5
     type: 1
   - xPosition: 13
-    yPosition: 10
+    yPosition: 7
     type: 2
-  - xPosition: 15
-    yPosition: 2
+  - xPosition: 13
+    yPosition: 12
+    type: 2
+  - xPosition: 13
+    yPosition: 14
     type: 1
-  - xPosition: 15
-    yPosition: 9
-    type: 2
-  - xPosition: 15
-    yPosition: 16
+  - xPosition: 16
+    yPosition: 6
     type: 3
   - xPosition: 16
-    yPosition: 1
+    yPosition: 8
     type: 1
   - xPosition: 16
-    yPosition: 10
-    type: 2
-  - xPosition: 18
-    yPosition: 2
+    yPosition: 11
     type: 1
-  - xPosition: 18
-    yPosition: 9
-    type: 2
-  - xPosition: 18
-    yPosition: 16
+  - xPosition: 16
+    yPosition: 13
     type: 3
   - xPosition: 19
-    yPosition: 1
+    yPosition: 7
     type: 1
+  - xPosition: 19
+    yPosition: 9
+    type: 2
   - xPosition: 19
     yPosition: 10
     type: 2
+  - xPosition: 19
+    yPosition: 12
+    type: 1

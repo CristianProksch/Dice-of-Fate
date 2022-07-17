@@ -378,8 +378,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _monsters:
   - {fileID: 11400000, guid: c69283dba263b72448ddf3db1b53bf27, type: 2}
-  - {fileID: 11400000, guid: e5e210ff0136ba8448dd5dabdf4f2dcf, type: 2}
-  - {fileID: 11400000, guid: 4a93b277fc3c9434a9e9d3b9073ffd1c, type: 2}
+  - {fileID: 11400000, guid: b6c670f0706e84246907beb0e489881a, type: 2}
+  - {fileID: 11400000, guid: 055f579db2fd4a14fb029de53d06192c, type: 2}
   - {fileID: 11400000, guid: 4288cf9295f53fb4aba6009e9b6c43ad, type: 2}
   _playerStartCollections:
   - {fileID: 11400000, guid: 126664b62e0c6bb449540403cf454f23, type: 2}

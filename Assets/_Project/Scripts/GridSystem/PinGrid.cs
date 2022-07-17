@@ -126,6 +126,14 @@ public class PinGrid : MonoBehaviour
         return PlacePin(x, y, prefab);
     }
 
+    public void RemovePin(ActionPin pin)
+    {
+        GetGridPosition(pin.transform.position, out int x, out int y);
+        SetSurroundingPlaceble(minDistanceToPlayerPin, x, y);
+
+        Destroy(pin.gameObject);
+    }
+
     public void SetSurroundingNotPlaceble(int fields , int x, int y)
     {
         for(int i = x-fields; i <= x + fields; i++)
@@ -135,6 +143,21 @@ public class PinGrid : MonoBehaviour
                 if (IsValidGridPosition(i, j, false))
                 {
                     _grid[i, j] = false;
+                    ResetCellColor(_gridBackground[i, j]);
+                }
+            }
+        }
+    }
+
+    public void SetSurroundingPlaceble(int fields, int x, int y)
+    {
+        for (int i = x - fields; i <= x + fields; i++)
+        {
+            for (int j = y - fields; j <= y + fields; j++)
+            {
+                if (IsValidGridPosition(i, j, false))
+                {
+                    _grid[i, j] = true;
                     ResetCellColor(_gridBackground[i, j]);
                 }
             }

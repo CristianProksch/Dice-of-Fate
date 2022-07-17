@@ -73,7 +73,7 @@ public class MonsterController : MonoBehaviour, IDamageable, IPinOwner
     {
         foreach(var pin in _monsterPins.Keys)
         {
-            Destroy(pin.gameObject);
+            _grid.RemovePin(pin);
         }
 
         _monsterPins.Clear();
