@@ -7,6 +7,8 @@ public class PlayerBehavior : MonoBehaviour, IDamageable, IPinOwner
     [SerializeField]
     private int _maxHealth;
     [SerializeField]
+    private Animator _slashAnimator;
+    [SerializeField]
     public ActionPinCollectionCollection _actionPinCollectionCollection;
     [SerializeField]
     private Sprite _sprite;
@@ -53,6 +55,7 @@ public class PlayerBehavior : MonoBehaviour, IDamageable, IPinOwner
         }
 
         _currentHealth -= actualDamage;
+        _slashAnimator.SetTrigger("Play");
     }
 
     public void HealDamage(int amount)

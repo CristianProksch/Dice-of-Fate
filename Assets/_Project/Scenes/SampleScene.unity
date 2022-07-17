@@ -527,6 +527,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4894568305773473447, guid: 1319eb79896c08946815f054ded2c3b3, type: 3}
+      propertyPath: _slashAnimator
+      value: 
+      objectReference: {fileID: 919207872}
     - target: {fileID: 5715920261711344483, guid: 1319eb79896c08946815f054ded2c3b3, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -588,6 +592,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf32bbbaf399d042bd89ea6fb842a0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &919207872 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8814474255859393845, guid: 50a4463fd548067479a83d3db3e8c0c2, type: 3}
+  m_PrefabInstance: {fileID: 7900924553910887770}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1139222552 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8753319067417821709, guid: 8f6e2d25f3b6d21439adde100f09aaa6, type: 3}
@@ -908,6 +917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _grid: {fileID: 278716855}
+  _slashAnimator: {fileID: 1993431311}
   _neutralPinPrefab: {fileID: 2253513428447585368, guid: 37704a154e858fa4e8c01596a6ace945, type: 3}
   _monsterPinPrefabList:
   - type: 1
@@ -932,6 +942,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1993431311 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7752778036036169308, guid: 8f6e2d25f3b6d21439adde100f09aaa6, type: 3}
+  m_PrefabInstance: {fileID: 8753319068455463445}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2025377988
 PrefabInstance:
   m_ObjectHideFlags: 0

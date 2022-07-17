@@ -15,6 +15,8 @@ public class MonsterController : MonoBehaviour, IDamageable, IPinOwner
     [SerializeField]
     private PinGrid _grid;
     [SerializeField]
+    private Animator _slashAnimator;
+    [SerializeField]
     private ActionPin _neutralPinPrefab;
     [SerializeField]
     private List<MonsterPin> _monsterPinPrefabList;
@@ -127,6 +129,7 @@ public class MonsterController : MonoBehaviour, IDamageable, IPinOwner
         }
 
         _currentMonsterHealth -= actualDamage;
+        _slashAnimator.SetTrigger("Play");
     }
 
     public void HealDamage(int amount)
