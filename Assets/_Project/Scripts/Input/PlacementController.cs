@@ -72,6 +72,10 @@ public class PlacementController : MonoBehaviour
         {
             TurnController.NextPhase();
         }
+        else
+        {
+            ShowPlacementInstruction();
+        }
     }
 
     private void AdjustGridVisibility()
@@ -95,6 +99,7 @@ public class PlacementController : MonoBehaviour
         }
 
         _pinsToPlace = new Queue<ActionPin>(pinData.Pins);
+        ShowPlacementInstruction();
     }
 
     private void RemovePlayerPins()
@@ -105,5 +110,11 @@ public class PlacementController : MonoBehaviour
         }
 
         _playerpins.Clear();
+    }
+
+    public void ShowPlacementInstruction()
+    {
+        var pin = _pinsToPlace.Peek();
+        TutorialDisplay.SetText($"Click to place a {pin.displayName} pin");
     }
 }

@@ -37,6 +37,8 @@ public class UpgradeDisplay : PinSelectionDisplay
         {
             RandomizePinSelection();
         }
+
+        ShowInstruction();
     }
 
     public override void RandomizePinSelection()
@@ -70,5 +72,10 @@ public class UpgradeDisplay : PinSelectionDisplay
         _player._actionPinCollectionCollection.ResetAvailability();
         GameController.NextPhase();
         Hide();
+    }
+
+    internal override void ShowInstruction()
+    {
+        TutorialDisplay.SetText($"Click an option to add pins to your pin bag");
     }
 }

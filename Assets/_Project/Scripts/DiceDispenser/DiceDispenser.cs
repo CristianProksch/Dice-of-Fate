@@ -77,6 +77,8 @@ public class DiceDispenser : MonoBehaviour
         AudioManager.instance.Play("SpawnDice");
 
         spawnedThisTurn++;
+
+        ShowInstructions();
     }
 
     void OnDieFinished()
@@ -93,5 +95,19 @@ public class DiceDispenser : MonoBehaviour
     {
         spawnedThisTurn = 0;
         finishedDiceThisTurn = 0;
+
+        ShowInstructions();
+    }
+
+    private void ShowInstructions()
+    {
+        if (spawnedThisTurn < dicePerTurn)
+        {
+            TutorialDisplay.SetText($"Click to throw a die ({dicePerTurn - spawnedThisTurn} left)");
+        }
+        else
+        {
+            TutorialDisplay.SetText("");
+        }
     }
 }

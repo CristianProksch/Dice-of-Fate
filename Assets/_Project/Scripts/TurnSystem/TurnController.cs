@@ -138,6 +138,7 @@ public class TurnController : MonoBehaviour
                 break;
             case TurnPhase.ApplyPinPowers:
                 Instance.StartCoroutine(Instance.ApplyPinPowers());
+                TutorialDisplay.SetText("");
                 break;
         }
     }

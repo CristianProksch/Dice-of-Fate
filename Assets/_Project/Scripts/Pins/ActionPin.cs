@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ActionPin : MonoBehaviour
 {
-
+    public string displayName;
     public PinComponentBase[] pinComponents;
     public Rigidbody2D rb2d;
     public Animator pinAnimator;

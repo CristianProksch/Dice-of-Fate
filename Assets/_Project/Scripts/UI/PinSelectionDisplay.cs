@@ -51,6 +51,8 @@ public class PinSelectionDisplay : MonoBehaviour
         {
             RandomizePinSelection();
         }
+
+        ShowInstruction();
     }
 
     public void Hide()
@@ -98,5 +100,10 @@ public class PinSelectionDisplay : MonoBehaviour
     public void RemovePinCollectionSelectedListener(UnityAction<ActionPinCollection> listener)
     {
         _onPinCollectionSelected.RemoveListener(listener);
+    }
+
+    internal virtual void ShowInstruction()
+    {
+        TutorialDisplay.SetText($"Click an option to select pins from your bag");
     }
 }
