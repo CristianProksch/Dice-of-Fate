@@ -25,6 +25,9 @@ public class ActionPin : MonoBehaviour
 
     void Execute()
     {
+        if(AudioManager.instance != null) {
+            AudioManager.instance.Play("HitPin");
+        }
         foreach (PinComponentBase comp in pinComponents)
         {
             comp.TriggerAction(_owner);
