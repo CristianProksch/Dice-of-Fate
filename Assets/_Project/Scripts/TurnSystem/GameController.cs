@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public enum GamePhase
 {
@@ -132,7 +133,19 @@ public class GameController : MonoBehaviour
 
     public static void OnMonsterHasDied()
     {
-        NextPhase();
+        if (Instance._currentMonsterId < Instance._monsters.Count - 1)
+        {
+            NextPhase();
+        }
+        else
+        {
+            SceneManager.LoadScene("VictoryScreen");
+        }
+    }
+
+    public static void OnPlayerHasDied()
+    {
+        SceneManager.LoadScene("GameOverScreen");
     }
 
     public static void AddStartCombatListener(UnityAction listener)
