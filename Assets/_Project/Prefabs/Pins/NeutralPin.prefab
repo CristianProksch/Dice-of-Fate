@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6497726737391428582}
   - component: {fileID: 8389414772226821217}
+  - component: {fileID: 8738510233859426755}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -84,6 +85,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8738510233859426755
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241729251806887942}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3da50d60c6c683f40b51dae9d79f9732, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7374283178305284621
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pinComponents: []
   rb2d: {fileID: 0}
+  pinAnimator: {fileID: 8738510233859426755}
 --- !u!58 &1876415702616497250
 CircleCollider2D:
   m_ObjectHideFlags: 0
