@@ -10,11 +10,8 @@ jobs:
       fail-fast: false
       matrix:
         projectPath:
-          - test-project
+          - ./
         targetPlatform:
-          - StandaloneLinux64 # Build a Linux 64-bit standalone.
-          - iOS # Build an iOS player.
-          - Android # Build an Android player.
           - WebGL # WebGL.
     steps:
       - uses: actions/checkout@v2
