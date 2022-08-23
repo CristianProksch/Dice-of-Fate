@@ -1,5 +1,7 @@
 ﻿name: Build for different Platforms
 
+on: workflow_dispatch
+
 jobs:
   buildLinuxBasedPlatforms:
     name: Build for ${{ matrix.targetPlatform }}
